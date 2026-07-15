@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import AdminSidebar from "./components/AdminSidebar/AdminSidebar";
+import AdminSidebar from "../../../src/Admin/layout/Components/AdminSidebar/AdminSidebar";
 import "./AdminLayout.css";
 import { motion } from "framer-motion";
 

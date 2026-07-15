@@ -17,7 +17,7 @@ import { LuFilter } from "react-icons/lu";
 import driftCar from "../../../public/images/driftedCar.jpg";
 import offRoad from "../../../public/images/off-road.jpg";
 import racingCar from "../../../public/images/onRoadCar.jpg";
-import monsterTruck from "../../../public/images/monsterTruck.jpg";
+import monsterTruck from "../../../public/images/MonsterTruck.jpg";
 
 import { IoMdSearch } from "react-icons/io";
 
