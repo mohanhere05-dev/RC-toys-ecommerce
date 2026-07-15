@@ -56,7 +56,7 @@ const ChangePasswordModal = ({ open, onClose }) => {
 
             const { data } = await axios.put(
 
-                "${import.meta.env.VITE_API_URL}/api/users/change-password",
+                `${import.meta.env.VITE_API_URL}/api/users/change-password`,
 
                 {
                     currentPassword,

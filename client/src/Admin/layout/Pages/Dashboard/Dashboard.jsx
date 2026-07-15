@@ -50,7 +50,7 @@ const Dashboard = () => {
 
             const { data } = await axios.get(
 
-                "${import.meta.env.VITE_API_URL}/api/dashboard",
+                `${import.meta.env.VITE_API_URL}/api/dashboard`,
 
                 {
 

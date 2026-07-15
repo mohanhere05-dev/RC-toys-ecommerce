@@ -32,7 +32,7 @@ const ProductDetails = () => {
         );
 
         setProduct(data);
-        const res = await axios.get("${import.meta.env.VITE_API_URL}/api/products");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
         const related = res.data.filter(
           (item) =>
             item.category === data.category &&

@@ -16,7 +16,7 @@ const Orders = () => {
 
             const { data } = await axios.get(
 
-                "${import.meta.env.VITE_API_URL}/api/orders",
+                `${import.meta.env.VITE_API_URL}/api/orders`,
 
                 {
                     headers: {

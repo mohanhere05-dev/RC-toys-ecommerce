@@ -16,7 +16,7 @@ const Products = () => {
         try {
 
             const { data } = await axios.get(
-                "${import.meta.env.VITE_API_URL}/api/products"
+                `${import.meta.env.VITE_API_URL}/api/products`
             );
 
             setProducts(data);
@@ -122,7 +122,7 @@ const Products = () => {
 
                 await axios.post(
 
-                    "${import.meta.env.VITE_API_URL}/api/products",
+                    `${import.meta.env.VITE_API_URL}/api/products`,
 
                     data,
 

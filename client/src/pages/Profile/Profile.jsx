@@ -27,7 +27,7 @@ const Profile = () => {
 
             const { data } = await axios.get(
 
-                "${import.meta.env.VITE_API_URL}/api/users/profile",
+                `${import.meta.env.VITE_API_URL}/api/users/profile`,
 
                 {
                     headers: {
@@ -68,7 +68,7 @@ const Profile = () => {
 
             const { data } = await axios.put(
 
-                "${import.meta.env.VITE_API_URL}/api/users/profile",
+                `${import.meta.env.VITE_API_URL}/api/users/profile`,
 
                 {
                     name,
