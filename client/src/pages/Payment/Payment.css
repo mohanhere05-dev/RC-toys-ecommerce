@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+.payment-page{
+
+    min-height:100vh;
+
+    background:#f5f7fb;
+
+    padding:110px 20px 40px;
+
+}
+
+.payment-wrapper{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:35px;
+
+}
+
+.payment-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.step{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    background:#e8f1ff;
+
+    color:#0d6efd;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.payment-card h1{
+
+    color:#222;
+
+    margin-bottom:8px;
+
+}
+
+.payment-card>p{
+
+    color:#666;
+
+    margin-bottom:30px;
+
+}
+
+.payment-section{
+
+    margin-bottom:35px;
+
+}
+
+.payment-section h3{
+
+    color:#222;
+
+    margin-bottom:18px;
+
+}
+
+.payment-option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px;
+
+    border:1px solid #ddd;
+
+    border-radius:14px;
+
+    margin-bottom:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.payment-option:hover{
+
+    border-color:#0d6efd;
+
+}
+
+.payment-option.active{
+
+    border:2px solid #0d6efd;
+
+    background:#f7fbff;
+
+}
+
+.payment-option.disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+.payment-option input{
+
+    transform:scale(1.2);
+
+}
+
+.payment-option div{
+
+    flex:1;
+
+}
+
+.payment-option strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+.payment-option p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+.address-box{
+
+    border:1px solid #eee;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    background:#fafafa;
+
+}
+
+.address-box p{
+
+    margin-bottom:8px;
+
+    color:#555;
+
+}
+
+.place-order-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.place-order-btn:hover{
+
+    background:#0056d6;
+
+    transform:translateY(-2px);
+
+}
+
+.payment-right{
+
+    position:sticky;
+
+    top:100px;
+
+    height:fit-content;
+
+}
+
+@media(max-width:992px){
+
+    .payment-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .payment-right{
+
+        position:static;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .payment-card{
+
+        padding:25px;
+
+    }
+
+}

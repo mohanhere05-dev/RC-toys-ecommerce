@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 172px;
+}
+
+.brand {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.brand img {
+    width: 74px;
+}
+
+.brand h1 {
+    font-size: 28px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #616060;
+}
+
+.header svg{
+    color: var(--BLUE);
+}
+
+.checkout-page {
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 100px 20px 40px;
+
+}
+
+.checkout-card {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    background: #fff;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+}
+
+.checkout-card h1 {
+
+    text-align: center;
+
+    color: #222;
+
+    margin-bottom: 8px;
+
+}
+
+.checkout-card p {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+}
+
+.input-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-bottom: 18px;
+
+    transition: .3s;
+
+}
+
+.input-box:hover {
+
+    border-color: #0d6efd;
+
+}
+
+.input-box:focus-within {
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, .12);
+
+}
+
+.input-box svg {
+
+    color: #666;
+
+    font-size: 17px;
+
+}
+
+.input-box input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: transparent;
+
+}
+
+.input-box input:focus {
+    box-sizing: none !important;
+    background-color: transparent !important;
+}
+
+.checkout-btn {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #0d6efd;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    margin-top: 15px;
+
+}
+
+.checkout-btn:hover {
+
+    background: #0056d6;
+
+    transform: translateY(-2px);
+
+}
+
+.checkout-wrapper {
+
+    width: 100%;
+
+    max-width: 1300px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 35px;
+
+}
+
+.checkout-left {
+
+    width: 100%;
+
+}
+
+.checkout-right {
+
+    width: 100%;
+
+}
+
+.checkout-card {
+
+    max-width: none;
+
+}
+
+@media(max-width:768px) {
+
+    .checkout-card {
+
+        padding: 25px;
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .checkout-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

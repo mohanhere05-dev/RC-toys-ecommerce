@@ -1,0 +1,167 @@
+.profile-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 120px 20px 40px;
+
+    background: #f5f7fb;
+
+}
+
+.profile-card {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+}
+
+.profile-logo {
+
+    width: 70px;
+
+    margin-bottom: 15px;
+
+}
+
+.profile-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #0d6efd;
+
+    color: #fff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    margin: 15px auto;
+
+}
+
+.profile-card h2 {
+
+    color: #222;
+
+    margin-bottom: 5px;
+
+}
+
+.profile-card p {
+
+    color: #666;
+
+    margin-bottom: 25px;
+
+}
+
+.profile-info {
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 25px;
+
+}
+
+.profile-info span {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+.profile-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: black;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+.profile-btn:hover {
+
+    color: #0056d6;
+
+}
+
+.change-btn {
+
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--BLUE);
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.change-btn:hover {
+
+    color: black;
+
+}
+
+.edit-name {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+}

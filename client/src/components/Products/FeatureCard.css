@@ -1,0 +1,71 @@
+:root {
+    --BLUE: #2992ff;
+}
+
+.feature-card {
+    height: 300px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.12);
+    border: none;
+    outline: none;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.feature-icon {
+    font-size: 32px;
+    background-color: #d5e0f8;
+    color: blue;
+    height: 72px;
+    width: 72px;
+    padding-top: 16px;
+    border-radius: 50%;
+    margin-bottom: 32px;
+}
+
+.feature-card h2 {
+    margin-bottom: 10px;
+}
+
+@media (max-width:480px) {
+    .feature-card {
+        height: 150px;
+        width: 160px;
+        border-radius: 12px;
+        box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.12);
+        border: none;
+        outline: none;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+    }
+
+    .feature-icon {
+        font-size: 16px;
+        background-color: #d5e0f8;
+        color: blue;
+        height: 40px;
+        width: 40px;
+        padding-top: 10px;
+        border-radius: 50%;
+        margin-bottom: 1px;
+    }
+
+    .feature-card h2 {
+        margin-bottom: 6px;
+        font-size: 12px
+    }
+
+    .feature-card p{
+        font-size: 8px;
+    }
+}
+

@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --BLUE: #2992ff;
+}
+
+.ourStory {
+    background-image: url(../../../public/images/driftCar.jpg);
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(1px);
+}
+
+.ourStory-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+}
+
+.ourStory-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.ourStory-content h1 {
+    font-size: 66px;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
+
+}
+
+.ourStory-content p {
+    color: white;
+    font-size: 24px;
+    width: 60vw;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
+}
+
+@media (max-width:480px) {
+    .ourStory {
+        background-image: url(../../../public/images/driftCar.jpg);
+        height: 45vh;
+        width: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(1px);
+    }
+
+    .ourStory-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .55);
+    }
+
+    .ourStory-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+    }
+
+    .ourStory-content h1 {
+        font-size: 33px;
+        color: white;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
+
+    }
+
+    .ourStory-content p {
+        color: white;
+        font-size: 12px;
+        width: 80vw;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
+    }
+}

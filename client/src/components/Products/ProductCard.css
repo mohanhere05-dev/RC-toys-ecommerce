@@ -1,0 +1,330 @@
+:root {
+    --BLUE: #2992ff;
+}
+
+.Product-Cards {
+    position: relative;
+    width: 360px;
+    height: 480px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    transition: .4s;
+}
+
+.Product-Cards:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+    cursor: pointer;
+}
+
+.Product-Cards .badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: white;
+    background-color: var(--BLUE);
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 12px 0 20px;
+    margin-left: 20px;
+}
+
+.rating svg {
+    color: #ffc107;
+    font-size: 15px;
+}
+
+.rating span {
+    margin-left: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;   
+}
+
+.product-image img:hover{
+    transform: scale(1.05);
+    transition: 0.3s ease-in;
+}
+
+.product-content {
+    padding: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-content h2 {
+    color: var(--BLUE);
+}
+
+
+.Product-Cards .cart-btn {
+    margin: auto;
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    margin-top: 18px;
+    padding: 12px 100px 12px 100px;
+    border-radius: 12px;
+    color: rgb(123, 121, 121);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cart-btn span {
+    font-size: 24px;
+
+}
+
+.Product-Cards button:hover {
+    background-color: var(--BLUE);
+    color: white;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(243, 241, 241);
+}
+
+.wishlist-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    color: red;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgb(254, 247, 247);
+    z-index: 999;
+}
+
+.wishlist-icon:hover {
+    color: red;
+}
+
+
+.wishlist-icon.active {
+    color: red;
+}
+
+@media (max-width:480px) {
+    .Product-Cards {
+        position: relative;
+        width: 180px;
+        height: 240px;
+        background: white;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+        transition: .4s;
+    }
+
+    .Product-Cards:hover {
+        transform: translateY(-8px);
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .Product-Cards .badge {
+        position: absolute;
+        top: 12px;
+        left: 8px;
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: white;
+        background-color: var(--BLUE);
+        font-size: 6px;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin: 6px 0 10px;
+        margin-left: 10px;
+    }
+
+    .rating svg {
+        color: #ffc107;
+        font-size: 8px;
+
+    }
+
+    .rating span {
+
+        color: #666;
+        font-size: 6px;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 125px;
+        overflow: hidden;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    .product-content {
+        padding: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-content h2 {
+        font-size: 12px;
+        color: var(--BLUE);
+    }
+
+    .product-content h3 {
+        font-size: 12px;
+    }
+
+    .Product-Cards .cart-btn {
+        margin: auto;
+        background-color: rgb(225, 225, 225);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        margin-top: 8px;
+        padding: 6px 50px 6px 50px;
+        border-radius: 6px;
+        color: rgb(123, 121, 121);
+        font-size: 8px;
+        font-weight: 600;
+    }
+
+    .cart-btn span {
+        font-size: 12px;
+
+    }
+
+    .Product-Cards button:hover {
+        background-color: var(--BLUE);
+        color: white;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgb(243, 241, 241);
+    }
+
+    .wishlist-icon {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        font-size: 12px;
+        color: white;
+        cursor: pointer;
+        transition: .3s;
+        color: red;
+    }
+
+    .wishlist-icon:hover {
+        color: red;
+    }
+
+
+    .wishlist-icon.active {
+
+        color: red;
+
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .Product-Cards {
+        width: 280px;
+        height: 380px;
+    }
+
+    .Product-Cards .badge {
+        top: 12px;
+        left: 12px;
+        padding: 3px 10px;
+        font-size: 10px;
+    }
+
+    .rating {
+        margin: 10px 0 16px;
+        margin-left: 16px;
+    }
+
+    .rating svg {
+        font-size: 12px;
+    }
+
+    .rating span {
+        font-size: 12px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .product-image img {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .product-content {
+        padding: 16px;
+    }
+
+    .product-content h2 {
+        font-size: 16px;
+    }
+
+    .product-content h3 {
+        font-size: 14px;
+    }
+
+    .Product-Cards .cart-btn {
+        padding: 10px 74px;
+        font-size: 14px;
+        margin-top: 14px;
+    }
+
+    .cart-btn span {
+        font-size: 18px;
+    }
+}

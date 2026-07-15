@@ -1,0 +1,155 @@
+.contact-info {
+    width: 90%;
+    height: 500px;
+    background: #fff;
+    padding: 10px 20px;
+    top: 80px;
+}
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.contact-info p {
+    margin-bottom: 18px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.info-icon {
+    font-size: 24px;
+    color: #0d6efd;
+    margin-top: 5px;
+}
+
+.info-card h4 {
+    margin-bottom: 16px;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.socialInfo {
+    border-top: 1px solid black;
+    padding-top: 14px;
+
+}
+
+.socialicons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 24px;
+    padding-top: 12px;
+
+
+}
+
+.socialicons a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    background-color: rgb(247, 247, 247);
+    padding: 18px;
+    padding-bottom: 6px;
+    border-radius: 50%;
+}
+
+.socialicons a:hover {
+    background-color: var(--BLUE);
+    color: white;
+    cursor: pointer;
+    transform: translateY(-4px);
+    transition: 0.3s;
+}
+
+@media (max-width:480px) {
+    .contact-info {
+        width: 100%;
+        height: 70vh;
+        background: #fff;
+        padding: 10px 20px;
+        top: 80px;
+    }
+
+    .contact-info h2 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    .contact-info p {
+        font-size: .6rem;
+        margin-bottom: 18px;
+    }
+
+    .info-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .info-icon {
+        font-size: 12px;
+        color: var(--BLUE);
+    }
+
+    .info-card h4 {
+        margin-bottom: 6px;
+        font-size: .6rem;
+    }
+
+    .info-card p {
+        color: #666;
+        line-height: 1.6;
+        font-size: .4rem;
+    }
+
+    .socialInfo {
+        margin-top: -340px;
+        border-top: 1px solid black;
+        padding-top: 8px;
+    }
+
+    .socialInfo h3 {
+        font-size: .6rem;
+    }
+
+    .socialicons {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 12px;
+        padding-top: 6px;
+
+
+    }
+
+    .socialicons a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-size: 12px;
+        background-color: rgb(247, 247, 247);
+        padding: 8px;
+        padding-bottom: 6px;
+        border-radius: 50%;
+    }
+
+    .socialicons a:hover {
+        background-color: var(--BLUE);
+        color: white;
+        cursor: pointer;
+        transform: translateY(-2px);
+        transition: 0.3s;
+    }
+}
