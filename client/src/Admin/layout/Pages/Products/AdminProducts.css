@@ -1,3 +1,7 @@
+:root {
+    --BLUE: #2992ff;
+}
+
 .admin-products {
     display: flex;
     flex-direction: column;
@@ -19,7 +23,7 @@
 }
 
 .products-header button {
-    background: #2992ff;
+    background: var(--BLUE);
     color: #fff;
     border: none;
     padding: 12px 22px;
@@ -229,107 +233,107 @@ tbody button:last-child:hover {
     border-color: #2992ff;
 }
 
-@media (max-width:480px){
+@media (max-width:480px) {
 
-    .admin-products{
+    .admin-products {
         padding: 0;
     }
 
-    .products-header{
-        flex-direction:column;
-        align-items:stretch;
-        gap:15px;
+    .products-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
     }
 
-    .products-header h1{
-        font-size:12px;
-        text-align:start;
+    .products-header h1 {
+        font-size: 12px;
+        text-align: start;
     }
 
-    .products-header input{
-        width:100%;
-        max-width:100%;
-        font-size:8px;
+    .products-header input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 8px;
     }
 
-    .products-header button{
-        width:100px;
+    .products-header button {
+        width: 100px;
         border-radius: 6px;
-        padding:8px;
-        font-size:8px;
+        padding: 8px;
+        font-size: 8px;
     }
 
-    .table-wrapper{
+    .table-wrapper {
         margin: 0;
-        height:auto;
-        overflow-x:auto;
-        overflow-y:auto;
-        border-radius:10px;
+        height: auto;
+        overflow-x: auto;
+        overflow-y: auto;
+        border-radius: 10px;
     }
 
-    .table-wrapper table{
-        min-width:550px;
-        margin: 0;
-    }
-
-    thead th{
-        padding:6px;
-        font-size:8px;
+    .table-wrapper table {
+        min-width: 550px;
         margin: 0;
     }
 
-    tbody td{
-        padding:12px;
-        font-size:8px;
+    thead th {
+        padding: 6px;
+        font-size: 8px;
+        margin: 0;
     }
 
-    tbody img{
-        width:24px;
-        height:24px;
+    tbody td {
+        padding: 12px;
+        font-size: 8px;
+    }
+
+    tbody img {
+        width: 24px;
+        height: 24px;
         border-radius: 4px;
     }
 
-    tbody button{
+    tbody button {
         border-radius: 4px;
-        padding:4px ;
-        font-size:8px;
-        margin-right:5px;
+        padding: 4px;
+        font-size: 8px;
+        margin-right: 5px;
     }
 
-    .modal{
-        width:95%;
-        max-height:90vh;
-        padding:20px;
-        overflow-y:auto;
+    .modal {
+        width: 95%;
+        max-height: 90vh;
+        padding: 20px;
+        overflow-y: auto;
     }
 
-    .modal h2{
-        font-size:22px;
+    .modal h2 {
+        font-size: 22px;
     }
 
     .modal input,
-    .modal textarea{
-        font-size:14px;
-        padding:10px;
+    .modal textarea {
+        font-size: 14px;
+        padding: 10px;
     }
 
-    .modal-buttons{
-        flex-direction:column;
+    .modal-buttons {
+        flex-direction: column;
     }
 
-    .modal-buttons button{
-        width:100%;
+    .modal-buttons button {
+        width: 100%;
     }
 
     tbody button:first-child {
-    background: #ffd864;
-    padding: 4px 12px;
-    color: #222;
-}
+        background: #ffd864;
+        padding: 4px 12px;
+        color: #222;
+    }
 
-tbody button:first-child:hover {
-    background: #ffc108;
-}
+    tbody button:first-child:hover {
+        background: #ffc108;
+    }
 
 
 }

@@ -31,13 +31,13 @@
 }
 
 .logo-description {
-    width: 400px;
+    width: 320px;
     margin-left: -60px;
 
 }
 
 .logo-description p {
-    font-size: 19px;
+    font-size: 13px;
     color: rgb(88, 88, 88);
     padding-bottom: 32px;
     padding-left: 64px;
@@ -58,9 +58,9 @@
     text-align: center;
     text-decoration: none;
     color: black;
-    font-size: 28px;
+    font-size: 18px;
     background-color: rgb(243, 238, 238);
-    padding: 18px;
+    padding: 16px;
     padding-bottom: 8px;
     border-radius: 50%;
 }
@@ -74,7 +74,7 @@
 }
 
 .footer-Navigation h3 {
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 24px;
 }
 
@@ -82,11 +82,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 28px;
+    gap: 20px;
 
 }
 
 .footer-Navigation a {
+    font-size: 12px;
     text-decoration: none;
     color: rgb(88, 88, 88);
 }
@@ -97,6 +98,7 @@
 }
 
 .footer-support h3 {
+    font-size: 14px;
     margin-bottom: 24px;
 }
 
@@ -108,6 +110,7 @@
 }
 
 .footer-supportlinks a {
+    font-size: 12px;
     text-decoration: none;
     color: rgb(88, 88, 88);
 }
@@ -118,6 +121,7 @@
 }
 
 .footer-contact h3 {
+    font-size: 14px;
     margin-bottom: 24px;
 }
 
@@ -135,6 +139,7 @@
 }
 
 .footer-contactlinks a {
+    font-size: 12px;
     display: flex;
     gap: 6px;
     text-decoration: none;
@@ -150,16 +155,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 35px 200px;
+    padding: 25px 200px;
     box-shadow: 0 2px 4px #959595;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 @media (max-width:480px) {
     .footer {
         display: block;
         justify-content: space-between;
-        padding: 25px 50px 50px 50px;
+        padding: 25px 50px 50px 20px;
     }
 
     .logo-section {
@@ -167,12 +172,20 @@
 
     }
 
+    .logo-section img{
+        width:28px;
+    }
+
+    .logo-section h1{
+        font-size: 16px;
+    }
+
     .logo-description {
-        width: 300px;
+        width: 250px;
     }
 
     .logo-description p {
-        font-size: 12px;
+        font-size: 10px;
         color: rgb(88, 88, 88);
         padding-bottom: 12px;
     }
@@ -192,7 +205,7 @@
         text-align: center;
         text-decoration: none;
         color: black;
-        font-size: 14px;
+        font-size: 12px;
         background-color: rgb(243, 238, 238);
         padding: 8px;
         padding-bottom: 4px;
@@ -212,20 +225,20 @@
     }
 
     .footer-Navigation h3 {
-        font-size: 12px;
-        margin-bottom: 14px;
+        font-size: 10px;
+        margin-bottom: 4px;
     }
 
     .footer-navlinks {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 16px;
+        gap: 10px;
 
     }
 
     .footer-Navigation a {
-        font-size: 12px;
+        font-size: 8px;
         text-decoration: none;
         color: rgb(88, 88, 88);
     }
@@ -240,19 +253,19 @@
     }
 
     .footer-support h3 {
-        font-size: 12px;
-        margin-bottom: 14px;
+        font-size: 10px;
+        margin-bottom: 4px;
     }
 
     .footer-supportlinks {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 18px;
+        gap: 10px;
     }
 
     .footer-supportlinks a {
-        font-size: 12px;
+        font-size: 8px;
         text-decoration: none;
         color: rgb(88, 88, 88);
     }
@@ -267,15 +280,15 @@
     }
 
     .footer-contact h3 {
-        font-size: 12px;
-        margin-bottom: 14px;
+        font-size: 10px;
+        margin-bottom: 4px;
     }
 
     .footer-contactlinks {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 18px;
+        gap: 10px;
     }
 
     .footer-contactlinks svg {
@@ -290,7 +303,7 @@
         align-items: center;
         justify-content: start;
         gap: 4px;
-        font-size: 12px;
+        font-size: 8px;
         text-decoration: none;
         color: rgb(88, 88, 88);
     }
@@ -304,8 +317,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 25px 50px;
+        padding: 20px 20px;
         box-shadow: 0 2px 4px #959595;
-        font-size: 9px;
+        font-size: 8px;
     }
 }

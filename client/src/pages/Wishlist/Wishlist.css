@@ -75,24 +75,120 @@
 
 }
 
-.empty-wishlist h2{
+.empty-wishlist h2 {
     font-size: 28px;
 }
 
-.empty-wishlist a{
+.empty-wishlist a {
     text-decoration: underline;
     color: black;
     font-weight: 600;
 }
 
-.empty-wishlist svg{
+.empty-wishlist svg {
     margin: auto;
     position: absolute;
     top: 373px;
-    left: 1034px;
+    left: 844px;
 }
 
-.empty-wishlist svg:hover{
+.empty-wishlist svg:hover {
     transform: translateX(8px);
     transition: 0.3s;
+}
+
+@media (max-width:480px) {
+    .wishlist-page {
+        width: 90%;
+        margin: 80px auto;
+        padding-top: 36px;
+        padding-bottom: 270px;
+    }
+
+    .wishlist-page h1 {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .wishlist-item {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+    }
+
+    .wishlist-item img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .wishlist-details {
+        font-size: 8px;
+        flex: 1;
+    }
+
+    .wishlist-actions {
+        display: flex;
+        gap: 12px;
+    }
+
+    .moveTo-cart {
+        font-size: 8px;
+        padding: 10px 12px;
+        color: white;
+        background-color: var(--BLUE);
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+    }
+
+    .removed-btn {
+        font-size: 8px;
+        padding: 10px 20px;
+        color: white;
+        background-color: red;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+
+    }
+
+    .empty-wishlist {
+        text-align: center;
+        padding: 100px 0;
+
+    }
+
+    .empty-wishlist h2 {
+        font-size: 18px;
+    }
+
+    .empty-wishlist a {
+        text-decoration: underline;
+        color: black;
+        font-weight: 500;
+    }
+
+    .empty-wishlist svg {
+        margin: auto;
+        position: absolute;
+        top: 288px;
+        left: 302px;
+    }
+
+    .empty-wishlist svg:hover {
+        transform: translateX(8px);
+        transition: 0.3s;
+    }
 }

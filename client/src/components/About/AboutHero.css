@@ -37,7 +37,7 @@
 }
 
 .ourStory-content h1 {
-    font-size: 66px;
+    font-size: 46px;
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
 
@@ -45,15 +45,15 @@
 
 .ourStory-content p {
     color: white;
-    font-size: 24px;
-    width: 60vw;
+    font-size: 18px;
+    width:45vw;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
 }
 
 @media (max-width:480px) {
     .ourStory {
         background-image: url(../../../public/images/driftCar.jpg);
-        height: 45vh;
+        height: 38vh;
         width: 100%;
         position: relative;
         background-position: center;
@@ -80,7 +80,8 @@
     }
 
     .ourStory-content h1 {
-        font-size: 33px;
+        margin-top: 50px;
+        font-size: 16px;
         color: white;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
 
@@ -88,7 +89,7 @@
 
     .ourStory-content p {
         color: white;
-        font-size: 12px;
+        font-size: 8px;
         width: 80vw;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
     }

@@ -1,3 +1,7 @@
+:root {
+    --BLUE: #2992ff;
+}
+
 .admin-sidebar {
     width: 260px;
     background: #111827;
@@ -28,7 +32,7 @@
 
 .admin-sidebar a:hover,
 .admin-sidebar a.active {
-    background: #2992ff;
+    background: var(--BLUE);
     color: #fff;
 }
 
@@ -83,7 +87,7 @@
 
     .admin-sidebar a:hover,
     .admin-sidebar a.active {
-        background: #2992ff;
+        background: var(--BLUE);
         color: #fff;
     }
 

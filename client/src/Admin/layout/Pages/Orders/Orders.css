@@ -1,3 +1,7 @@
+:root {
+    --BLUE: #2992ff;
+}
+
 .admin-orders {
     display: flex;
     flex-direction: column;
@@ -30,7 +34,7 @@ table {
 thead th {
     position: sticky;
     top: 0;
-    background: #2992ff;
+    background: var(--BLUE);
     color: white;
     padding: 18px;
 }
@@ -89,7 +93,7 @@ tbody td {
 /* Status */
 
 .status-badge {
-    background: #2992ff;
+    background: var(--BLUE);
     color: #fff;
     padding: 8px 18px;
     border-radius: 30px;
@@ -184,7 +188,7 @@ tbody td {
     padding: 12px 24px;
     border: none;
     border-radius: 10px;
-    background: #2992ff;
+    background: var(--BLUE);
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -193,7 +197,7 @@ tbody td {
 }
 
 .modal button:hover {
-    background: #1678dc;
+    background: var(--BLUE);
 }
 
 /* Scrollbar */
@@ -203,33 +207,24 @@ tbody td {
 }
 
 .modal::-webkit-scrollbar-thumb {
-    background: #2992ff;
+    background: var(--BLUE);
     border-radius: 4px;
 }
 
 table select {
-
     padding: 8px 12px;
-
     border: 1px solid #ddd;
-
     border-radius: 8px;
-
     background: #fff;
-
     cursor: pointer;
-
     font-size: 14px;
-
     outline: none;
-
     transition: .3s;
-
 }
 
 table select:focus {
 
-    border-color: #2992ff;
+    border-color: var(--BLUE);
 
 }
 
@@ -266,7 +261,7 @@ table select:focus {
     thead th {
         position: sticky;
         top: 0;
-        background: #2992ff;
+        background: var(--BLUE);
         color: white;
         padding: 8px;
     }
@@ -326,7 +321,7 @@ table select:focus {
     /* Status */
 
     .status-badge {
-        background: #2992ff;
+        background: var(--BLUE);
         color: #fff;
         padding: 4px 8px;
         border-radius: 12px;
@@ -423,7 +418,7 @@ table select:focus {
         border: none;
         border-radius: 6px;
         font-size: 8px;
-        background: #2992ff;
+        background: var(--BLUE);
         color: white;
         font-weight: 600;
         cursor: pointer;
@@ -432,7 +427,7 @@ table select:focus {
     }
 
     .modal button:hover {
-        background: #1678dc;
+        background: var(--BLUE);
     }
 
     /* Scrollbar */
@@ -442,7 +437,7 @@ table select:focus {
     }
 
     .modal::-webkit-scrollbar-thumb {
-        background: #2992ff;
+        background: var(--BLUE);
         border-radius: 4px;
     }
 
@@ -458,6 +453,6 @@ table select:focus {
     }
 
     table select:focus {
-        border-color: #2992ff;
+        border-color: var(--BLUE);
     }
 }

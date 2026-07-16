@@ -168,7 +168,7 @@ const Dashboard = () => {
 
                     <ResponsiveContainer
                         width="100%"
-                        height={350}
+                        height={250}
                     >
 
                         <LineChart
@@ -202,7 +202,7 @@ const Dashboard = () => {
 
                     <ResponsiveContainer
                         width="100%"
-                        height={320}
+                        height={280}
                     >
 
                         <PieChart>
