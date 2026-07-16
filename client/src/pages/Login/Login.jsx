@@ -22,7 +22,7 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    console.log(import.meta.env.VITE_API_URL);
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -32,8 +32,7 @@ const Login = () => {
         }
 
         try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/auth/login`,
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`,
                 {
                     email,
                     password,
@@ -81,8 +80,7 @@ const Login = () => {
 
             const firebaseUser = result.user;
 
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/auth/google`,
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/google`,
                 {
                     name: firebaseUser.displayName,
                     email: firebaseUser.email,
