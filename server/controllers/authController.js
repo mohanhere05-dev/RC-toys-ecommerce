@@ -171,7 +171,6 @@ export const googleLogin = async (req, res) => {
                 name,
                 email,
                 photo,
-                password: null,
             });
 
         }
