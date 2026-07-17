@@ -212,41 +212,25 @@ export const googleLogin = async (req, res) => {
 // ===============================
 
 export const forgotPassword = async (req, res) => {
-
     try {
-
         const { email } = req.body;
 
-        if (!email) {
-            return res.status(400).json({
-                message: "Email is required"
-            });
-        }
+        console.log("1. Request received");
 
         const user = await User.findOne({ email });
 
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found"
-            });
-        }
+        console.log("2. User found:", user?.email);
 
-        // Google account check
-        if (!user.password) {
-            return res.status(400).json({
-                message: "This account uses Google Sign-In."
-            });
-        }
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-        // Generate 6 digit OTP
-        const otp = Math.floor(
-            100000 + Math.random() * 900000
-        ).toString();
+        console.log("3. OTP:", otp);
 
         user.otp = otp;
         user.otpExpire = Date.now() + 5 * 60 * 1000;
 
         await user.save();
+
+        console.log("4. User saved");
 
         await sendEmail(
             user.email,
@@ -254,18 +238,19 @@ export const forgotPassword = async (req, res) => {
             `Your OTP is ${otp}. It is valid for 5 minutes.`
         );
 
+        console.log("5. Email sent");
+
         res.status(200).json({
             message: "OTP sent successfully"
         });
 
     } catch (error) {
+        console.error("Forgot Password Error:", error);
 
         res.status(500).json({
             message: error.message
         });
-
     }
-
 };
 
 // ===============================
