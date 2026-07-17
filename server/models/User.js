@@ -23,8 +23,15 @@ const userSchema = new mongoose.Schema(
 
         password: {
             type: String,
-            required: [true, "Password is required"],
-            minlength: 6,
+            default: null,
+            validate: {
+                validator: function (value) {
+                    // Google users password illama irukkalam
+                    if (!value) return true;
+                    return value.length >= 6;
+                },
+                message: "Password must be at least 6 characters",
+            },
         },
 
         isAdmin: {
