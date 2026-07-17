@@ -81,7 +81,7 @@
 
     .ourStory-content h1 {
         margin-top: 50px;
-        font-size: 16px;
+        font-size: 24px;
         color: white;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
 
@@ -89,7 +89,7 @@
 
     .ourStory-content p {
         color: white;
-        font-size: 8px;
+        font-size: 12px;
         width: 80vw;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, .8);
     }

@@ -59,18 +59,18 @@
     .stats-section {
         padding-top: 20px;
         width: 100px;
-        height: 60px;
-        margin: 12px;
+        height: 80px;
+        margin: 16px 24px;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap:12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
     }
 
     .stat-card {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
         background: #fff;
-        padding: 6px;
+        padding: 12px;
         border-radius: 12px;
         text-align: center;
         box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
@@ -82,20 +82,20 @@
     }
 
     .stat-icon {
-        font-size: 12px;
+        font-size: 18px;
         margin-top: 12px;
         color: var(--BLUE);
     }
 
     .stat-card h2 {
         margin-top: -12px;
-        font-size: 12px;
+        font-size: 18px;
     }
 
     .stat-card p {
         color: #666;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 6px;
+        font-size: 8px;
     }
 }

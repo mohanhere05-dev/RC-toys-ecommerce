@@ -59,20 +59,20 @@
         padding: 4px 12px;
         background: rgba(255, 255, 255, .2);
         border-radius: 30px;
-        font-size: .3rem;
+        font-size: .4rem;
         letter-spacing: 2px;
         margin-bottom: 12px;
     }
 
     .contact-hero h1 {
-        font-size: 18px;
+        font-size: 24px;
         margin-bottom: 8px;
         font-weight: 700;
     }
 
     .contact-hero p {
-        width:300px;
-        font-size: 8px;
+        width:369px;
+        font-size: 12px;
         line-height: 1.8;
         color: #f5f5f5;
     }

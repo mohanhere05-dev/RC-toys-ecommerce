@@ -1,27 +1,20 @@
-import dotenv from "dotenv";
-dotenv.config();
+import { Resend } from "resend";
 
-import nodemailer from "nodemailer";
-
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async (to, subject, text) => {
-    await transporter.sendMail({
-        from: `"TurboToys" <${process.env.EMAIL_USER}>`,
-        to,
+    const { data, error } = await resend.emails.send({
+        from: "TurboToys <onboarding@resend.dev>",
+        to: [to],
         subject,
         text,
     });
-};
 
-export { transporter };
+    if (error) {
+        throw new Error(error.message);
+    }
+
+    return data;
+};
 
 export default sendEmail;

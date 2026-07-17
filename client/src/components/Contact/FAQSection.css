@@ -45,7 +45,7 @@
     .faq-section h2 {
         text-align: center;
         margin-bottom: 20px;
-        font-size: 1rem;
+        font-size: 18px;
     }
 
     .faq-item {
@@ -60,16 +60,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 12px;
         cursor: pointer;
     }
 
     .faq-question h3 {
-        font-size: 8px;
+        font-size: 12px;
     }
 
     .faq-item p {
-        font-size: .4rem;
+        font-size: .8rem;
         padding: 0 12px 12px;
         color: #666;
         line-height: 1.8;

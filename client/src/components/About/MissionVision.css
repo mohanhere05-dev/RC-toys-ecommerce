@@ -97,13 +97,13 @@
 
     .mission-card h2 {
         margin-bottom: 12px;
-        font-size: 1rem;
+        font-size: 20px;
     }
 
     .mission-card p {
         color: #666;
         line-height: 1.8;
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .mission-card:hover {
@@ -122,14 +122,14 @@
 
     .vision-card h2 {
         margin-bottom: 20px;
-        font-size: 1rem;
+        font-size: 20px;
         color: white;
     }
 
     .vision-card p {
         color: #ffff;
         line-height: 1.8;
-        font-size: .6rem;
+        font-size: 1rem;
     }
 
     .vision-card:hover {
