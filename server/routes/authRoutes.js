@@ -33,4 +33,24 @@ router.get("/test-email", async (req, res) => {
     }
 });
 
+router.get("/test-email", async (req, res) => {
+    try {
+        await sendEmail(
+            "namohan007@gmail.com",
+            "TurboToys Test Mail",
+            "🎉 Congratulations! Resend is working successfully."
+        );
+
+        res.json({
+            message: "Email Sent Successfully",
+        });
+    } catch (error) {
+        console.error(error);
+
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+});
+
 export default router;
