@@ -47,6 +47,8 @@ const Home = () => {
                     `${import.meta.env.VITE_API_URL}/api/products`
                 );
 
+                console.log(data);
+
                 setProducts(data);
 
             } catch (error) {
@@ -210,7 +212,7 @@ const Home = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}>
-
+                        
                     {products.slice(1, 7).map((product) => (
 
                         <ProductCard
@@ -293,7 +295,7 @@ const Home = () => {
             <section className='footerSection'>
                 <Footer />
             </section>
-            
+
         </>
     )
 }

@@ -73,11 +73,10 @@ const Product = ({ id, image, name, price, category, description, stock }) => {
 
                 <div className='product-image'>
                     <img
-                        src={
-                            image.startsWith("/uploads")
+                        src={image.startsWith("/uploads")
                                 ? `${import.meta.env.VITE_API_URL}${image}`
                                 : image
-                        }
+                            }
                         alt={name}
                     />
                 </div>

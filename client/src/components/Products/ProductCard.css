@@ -94,7 +94,7 @@ font-size: 16px;
     margin-top: 18px;
     padding: 12px 70px;
     border-radius: 8px;
-    color: rgb(123, 121, 121);
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
 }
@@ -215,7 +215,7 @@ font-size: 16px;
 
     .Product-Cards .cart-btn {
         margin: auto;
-        background-color: rgb(225, 225, 225);
+        background-color: var(--BLUE);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -236,7 +236,7 @@ font-size: 16px;
     }
 
     .Product-Cards button:hover {
-        background-color: var(--BLUE);
+        background-color: blue;
         color: white;
         transition: 0.3s ease-in-out;
         cursor: pointer;
@@ -244,6 +244,7 @@ font-size: 16px;
     }
 
     .wishlist-icon {
+        background-color: white;
         position: absolute;
         top: 6px;
         right: 6px;
