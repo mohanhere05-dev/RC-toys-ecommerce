@@ -27,12 +27,12 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 
 
 import logo from '../../../public/images/logo.png'
-import driftCar from '../../../public/images/driftCar.jpg'
-import offRoad from '../../../public/images/off-road.jpg'
-import racingCar from '../../../public/images/onRoadCar.jpg'
-import MonsterTruck from '../../../public/images/MonsterTruck.jpg'
-import RoyalCar from '../../../public/images/royalCar.jpg'
-import MinatureCar from '../../../public/images/minatureCar.jpg'
+import driftCar from '../../../public/images/driftCar.webp'
+import offRoad from '../../../public/images/off-road.webp'
+import racingCar from '../../../public/images/onRoadCar.webp'
+import MonsterTruck from '../../../public/images/MonsterTruck.webp'
+import RoyalCar from '../../../public/images/royalCar.webp'
+import MinatureCar from '../../../public/images/minatureCar.webp'
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -144,7 +144,7 @@ const Home = () => {
                         viewport={{ once: true }}>
 
                         <Link to='/products'><CategoryCard
-                            image={driftCar}
+                            image={`${driftCar}?w=900&auto=format&fit=crop&q=80`}
                             title="Drift Cars"
                             icon={<FaCarSide />}
                         /></Link>
@@ -157,7 +157,7 @@ const Home = () => {
                         viewport={{ once: true }}>
 
                         <Link to='/products'><CategoryCard
-                            image={offRoad}
+                            image={`${offRoad}?w=900&auto=format&fit=crop&q=80`}
                             title="Off-Road"
                             icon={<FaCarCrash />}
                         /></Link>
@@ -170,7 +170,7 @@ const Home = () => {
                         viewport={{ once: true }}>
 
                         <Link to='/products'><CategoryCard
-                            image={racingCar}
+                            image={`${racingCar}?w=900&auto=format&fit=crop&q=80`}
                             title="RacingCar"
                             icon={<FaCarOn />}
                         /></Link>
@@ -183,7 +183,7 @@ const Home = () => {
                         viewport={{ once: true }}>
 
                         <Link to='/products'><CategoryCard
-                            image={MonsterTruck}
+                            image={`${MonsterTruck}?w=900&auto=format&fit=crop&q=80`}
                             title="MonsterTruck"
                             icon={<FaTruckMonster />}
                         /></Link>
@@ -293,9 +293,7 @@ const Home = () => {
             <section className='footerSection'>
                 <Footer />
             </section>
-            {/* </div >
-            {!isLoggedIn && <Login />
-} */}
+            
         </>
     )
 }

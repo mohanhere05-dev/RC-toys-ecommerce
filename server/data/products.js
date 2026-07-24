@@ -2,7 +2,7 @@ const products = [
     {
         name: "Drift King",
         price: 599,
-        image: "/images/driftedCar.jpg",
+        image: "/images/driftedCar.webp",
         category: "Drift",
         description: "High speed drift RC car",
         stock: 10,
@@ -10,7 +10,7 @@ const products = [
     {
         name: "Miniature",
         price: 899,
-        image: "/images/minatureCar.jpg",
+        image: "/images/minatureCar.webp",
         category: "Monster Truck",
         description: "Powerful off-road RC truck",
         stock: 8,
@@ -18,7 +18,7 @@ const products = [
     {
         name: "Royal Racer",
         price: 699,
-        image: "/images/royalCar.jpg",
+        image: "/images/royalCar.webp",
         category: "Racing",
         description: "Fast Formula style RC car",
         stock: 12,
@@ -26,7 +26,7 @@ const products = [
     {
         name: "OnRoad King",
         price: 599,
-        image: "/images/onRoadCar.jpg",
+        image: "/images/onRoadCar.webp",
         category: "Drift",
         description: "High speed drift RC car",
         stock: 10,
@@ -34,7 +34,7 @@ const products = [
     {
         name: "Monster Truck X",
         price: 899,
-        image: "/images/premiumCar.jpg",
+        image: "/images/premiumCar.webp",
         category: "Monster Truck",
         description: "Powerful off-road RC truck",
         stock: 8,
@@ -42,7 +42,7 @@ const products = [
     {
         name: "Formula Racer",
         price: 699,
-        image: "/images/sampleCar.jpg",
+        image: "/images/sampleCar.webp",
         category: "Racing",
         description: "Fast Formula style RC car",
         stock: 12,

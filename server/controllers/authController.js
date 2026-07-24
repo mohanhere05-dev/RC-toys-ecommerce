@@ -2,140 +2,120 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import sendEmail from "../utils/sendEmail.js";
+import sendLoginEmail from "../utils/sendLoginEmail.js";
 
+// ===============================
+// Generate JWT Token
+// ===============================
+const generateToken = (id) => {
+    return jwt.sign(
+        { id },
+        process.env.JWT_SECRET,
+        { expiresIn: "7d" }
+    );
+};
 
 // ===============================
 // Login User
 // ===============================
 export const loginUser = async (req, res) => {
-
     try {
-
         const { email, password } = req.body;
 
-        // Check empty fields
         if (!email || !password) {
-
             return res.status(400).json({
-                message: "All fields are required"
+                message: "All fields are required",
             });
-
         }
 
-        // Find user
         const user = await User.findOne({ email });
 
         if (!user) {
-
             return res.status(400).json({
-                message: "Invalid Email or Password"
+                message: "Invalid Email or Password",
             });
-
         }
 
-        // Google account check
         if (!user.password) {
-
             return res.status(400).json({
-                message: "This account uses Google Sign-In. Please continue with Google."
+                message: "This account uses Google Sign-In. Please continue with Google.",
             });
-
         }
 
-        // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-
             return res.status(400).json({
-                message: "Invalid Email or Password"
+                message: "Invalid Email or Password",
             });
-
         }
 
-        // Generate JWT
-        const token = jwt.sign(
-
-            {
-                id: user._id,
-            },
-
-            process.env.JWT_SECRET,
-
-            {
-                expiresIn: "7d",
-            }
-
+        // ✅ Send Login Success Email (Background)
+        sendLoginEmail(user).catch((err) =>
+            console.error("Login Email Error:", err)
         );
 
         res.status(200).json({
-
             message: "Login Successful",
-
-            token,
-
+            token: generateToken(user._id),
             user: {
-
                 id: user._id,
-
                 name: user.name,
-
                 email: user.email,
-
                 isAdmin: user.isAdmin,
-
             },
-
         });
-
     } catch (error) {
-
         res.status(500).json({
-
             message: error.message,
-
         });
-
     }
-
 };
+
 // ===============================
 // Register User
 // ===============================
-
 export const registerUser = async (req, res) => {
-    console.log(req.body);
     try {
-
         const { name, email, password } = req.body;
 
-        // Check all fields
         if (!name || !email || !password) {
             return res.status(400).json({
-                message: "All fields are required"
+                message: "All fields are required",
             });
         }
 
-        // Check existing user
         const userExists = await User.findOne({ email });
 
         if (userExists) {
             return res.status(400).json({
-                message: "User already exists"
+                message: "User already exists",
             });
         }
 
-        // Hash password
         const salt = await bcrypt.genSalt(10);
-
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Create user
         const user = await User.create({
             name,
             email,
             password: hashedPassword,
         });
+
+        // ✅ Welcome Email
+        sendEmail(
+            user.email,
+            "🎉 Welcome to TurboToys",
+            `Hello ${user.name},
+
+Welcome to TurboToys!
+
+Your account has been created successfully.
+
+Happy Shopping 🚗
+
+TurboToys Team`
+        ).catch((err) => console.error("Welcome Email Error:", err));
 
         res.status(201).json({
             message: "User Registered Successfully",
@@ -145,7 +125,6 @@ export const registerUser = async (req, res) => {
                 email: user.email,
             },
         });
-
     } catch (error) {
         res.status(500).json({
             message: error.message,
@@ -153,84 +132,74 @@ export const registerUser = async (req, res) => {
     }
 };
 
-
 // ===============================
-// googleLogin User
+// Google Login
 // ===============================
 export const googleLogin = async (req, res) => {
-
     try {
-
         const { name, email, photo } = req.body;
 
         let user = await User.findOne({ email });
 
         if (!user) {
-
             user = await User.create({
                 name,
                 email,
                 photo,
             });
 
+            // Welcome Email for New Google Users
+            sendEmail(
+                user.email,
+                "🎉 Welcome to TurboToys",
+                `Hello ${user.name},
+
+Welcome to TurboToys!
+
+Your Google account has been linked successfully.
+
+Happy Shopping 🚗
+
+TurboToys Team`
+            ).catch(console.error);
         }
 
-        const token = jwt.sign(
-
-            { id: user._id },
-
-            process.env.JWT_SECRET,
-
-            { expiresIn: "7d" }
-
-        );
+        // Login Email
+        sendLoginEmail(user).catch(console.error);
 
         res.status(200).json({
-
             message: "Google Login Successful",
-
-            token,
-
-            user
-
+            token: generateToken(user._id),
+            user,
         });
-
     } catch (error) {
-
         res.status(500).json({
-
-            message: error.message
-
+            message: error.message,
         });
-
     }
-
 };
 
 // ===============================
-// ForgotPassword User
+// Forgot Password
 // ===============================
-
 export const forgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
 
-        console.log("1. Request received");
-
         const user = await User.findOne({ email });
 
-        console.log("2. User found:", user?.email);
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found",
+            });
+        }
 
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
-
-        console.log("3. OTP:", otp);
 
         user.otp = otp;
         user.otpExpire = Date.now() + 5 * 60 * 1000;
 
         await user.save();
-
-        console.log("4. User saved");
 
         await sendEmail(
             user.email,
@@ -238,131 +207,108 @@ export const forgotPassword = async (req, res) => {
             `Your OTP is ${otp}. It is valid for 5 minutes.`
         );
 
-        console.log("5. Email sent");
-
         res.status(200).json({
-            message: "OTP sent successfully"
+            message: "OTP sent successfully",
         });
-
     } catch (error) {
-        console.error("Forgot Password Error:", error);
+        console.error(error);
 
         res.status(500).json({
-            message: error.message
+            message: error.message,
         });
     }
 };
 
 // ===============================
-// VerifyOTP
+// Verify OTP
 // ===============================
-
-
 export const verifyOTP = async (req, res) => {
-
     try {
-
         const { email, otp } = req.body;
 
-        if (!email || !otp) {
-            return res.status(400).json({
-                message: "Email and OTP are required"
-            });
-        }
-
         const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found"
+                message: "User not found",
             });
         }
 
         if (user.otp !== otp) {
             return res.status(400).json({
-                message: "Invalid OTP"
+                message: "Invalid OTP",
             });
         }
 
         if (user.otpExpire < Date.now()) {
             return res.status(400).json({
-                message: "OTP Expired"
+                message: "OTP Expired",
             });
         }
 
         res.status(200).json({
-            message: "OTP Verified Successfully"
+            message: "OTP Verified Successfully",
         });
-
     } catch (error) {
-
         res.status(500).json({
-            message: error.message
+            message: error.message,
         });
-
     }
-
 };
 
 // ===============================
-// resetPassword User
+// Reset Password
 // ===============================
-
-
 export const resetPassword = async (req, res) => {
-
     try {
-
         const { email, otp, password } = req.body;
-
-        if (!email || !otp || !password) {
-            return res.status(400).json({
-                message: "All fields are required"
-            });
-        }
 
         const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found"
+                message: "User not found",
             });
         }
 
         if (user.otp !== otp) {
             return res.status(400).json({
-                message: "Invalid OTP"
+                message: "Invalid OTP",
             });
         }
 
         if (user.otpExpire < Date.now()) {
             return res.status(400).json({
-                message: "OTP Expired"
+                message: "OTP Expired",
             });
         }
 
         const salt = await bcrypt.genSalt(10);
 
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        user.password = hashedPassword;
-
+        user.password = await bcrypt.hash(password, salt);
         user.otp = "";
-
         user.otpExpire = null;
 
         await user.save();
 
+        await sendEmail(
+            user.email,
+            "✅ Password Changed Successfully",
+            `Hello ${user.name},
+
+Your TurboToys account password has been changed successfully.
+
+If this wasn't you, please contact support immediately.
+
+TurboToys Team`
+        );
+
         res.status(200).json({
-            message: "Password Reset Successfully"
+            message: "Password Reset Successfully",
         });
-
     } catch (error) {
-
         res.status(500).json({
-            message: error.message
+            message: error.message,
         });
-
     }
-
 };

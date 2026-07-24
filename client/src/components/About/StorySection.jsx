@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import storyImg from "../../../public/images/onRoadCar.jpg";
+import storyImg from "../../../public/images/onRoadCar.webp";
 import "./StorySection.css";
 
 const StorySection = () => {
@@ -14,7 +14,7 @@ const StorySection = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <img src={storyImg} alt="Our Story" />
+                    <img src={`${storyImg}?w=900&auto=format&fit=crop&q=80`} alt="Our Story" />
                 </motion.div>
 
                 <motion.div

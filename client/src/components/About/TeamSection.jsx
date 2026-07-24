@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import "./TeamSection.css";
 
-import member1 from "../../../public/team-members/member1.jpg";
-import member2 from "../../../public/team-members/member2.jpg";
-import member3 from "../../../public/team-members/member3.jpg";
-import member4 from "../../../public/team-members/member4.jpg";
+import member1 from "../../../public/team-members/member1.webp";
+import member2 from "../../../public/team-members/member2.webp";
+import member3 from "../../../public/team-members/member3.webp";
+import member4 from "../../../public/team-members/member4.webp";
 
 
 const team = [
@@ -72,7 +72,7 @@ const TeamSection = () => {
                         }}
                     >
 
-                        <img src={member.image} alt={member.name} />
+                        <img src={`${member.image}?w=900&auto=format&fit=crop&q=80`} alt={member.name} />
                         <h3>{member.name}</h3>
                         <span>{member.role}</span>
                     </motion.div>

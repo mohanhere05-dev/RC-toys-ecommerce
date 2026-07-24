@@ -14,10 +14,10 @@ import Loading from "../../components/Loading";
 import { MdClear } from "react-icons/md";
 import { RiCloseFill } from "react-icons/ri";
 import { LuFilter } from "react-icons/lu";
-import driftCar from "../../../public/images/driftedCar.jpg";
-import offRoad from "../../../public/images/off-road.jpg";
-import racingCar from "../../../public/images/onRoadCar.jpg";
-import monsterTruck from "../../../public/images/MonsterTruck.jpg";
+import driftCar from "../../../public/images/driftedCar.webp";
+import offRoad from "../../../public/images/off-road.webp";
+import racingCar from "../../../public/images/onRoadCar.webp";
+import monsterTruck from "../../../public/images/MonsterTruck.webp";
 
 import { IoMdSearch } from "react-icons/io";
 

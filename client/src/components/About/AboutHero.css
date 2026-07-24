@@ -9,7 +9,7 @@
 }
 
 .ourStory {
-    background-image: url(../../../public/images/driftCar.jpg);
+    background-image: url(../../../public/images/driftCar.webp);
     height: 90vh;
     width: 100%;
     position: relative;
@@ -52,7 +52,7 @@
 
 @media (max-width:480px) {
     .ourStory {
-        background-image: url(../../../public/images/driftCar.jpg);
+        background-image: url(../../../public/images/driftCar.webp);
         height: 38vh;
         width: 100%;
         position: relative;
