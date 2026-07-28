@@ -85,7 +85,7 @@ font-size: 16px;
 
 .Product-Cards .cart-btn {
     margin: auto;
-    background-color: rgb(225, 225, 225);
+    background-color: var(--BLUE);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,13 +94,14 @@ font-size: 16px;
     margin-top: 18px;
     padding: 12px 70px;
     border-radius: 8px;
-    color: #fff;
+    color: white;
     font-size: 14px;
     font-weight: 500;
 }
 
 .cart-btn svg {
     display: flex;
+    color: white;
     font-size: 16px;
 
 }
@@ -172,12 +173,14 @@ font-size: 16px;
     .rating svg {
         color: #ffc107;
         font-size: 12px;
+        margin-bottom: 4px;
 
     }
 
     .rating span {
         color: #666;
         font-size: 10px;
+        margin-bottom: 4px;
     }
 
     .product-image {
@@ -195,7 +198,7 @@ font-size: 16px;
     }
 
     .product-content {
-        padding: 6px;
+        padding: 8px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: 100;
         display: flex;
@@ -205,12 +208,14 @@ font-size: 16px;
     }
 
     .product-content h2 {
-        font-size: 12px;
+        font-size: 10px;
         color: var(--BLUE);
+        margin-bottom: 4px;
     }
 
     .product-content h3 {
-        font-size: 12px;
+        font-size: 10px;
+        margin-bottom: 4px;
     }
 
     .Product-Cards .cart-btn {
@@ -224,14 +229,14 @@ font-size: 16px;
         margin-top: 8px;
         padding: 8px 30px;
         border-radius: 6px;
-        color: rgb(123, 121, 121);
-        font-size: 12px;
-        font-weight: 600;
+        color: white;
+        font-size: 10px;
+        font-weight: 500;
     }
 
     .cart-btn svg {
         display: flex;
-        font-size: 14px;
+        font-size: 12px;
 
     }
 

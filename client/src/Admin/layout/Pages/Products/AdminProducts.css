@@ -5,7 +5,6 @@
 .admin-products {
     display: flex;
     flex-direction: column;
-    height: 100%;
     background: #f8fafc;
     padding: 30px;
 }
@@ -39,9 +38,9 @@
 }
 
 .table-wrapper {
-    height: 800px;
+    flex: 1;
     overflow-y: auto;
-    border-radius: 12px;
+    min-height: 0;
 }
 
 .table-wrapper table {

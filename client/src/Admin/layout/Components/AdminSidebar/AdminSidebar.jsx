@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
     FaTachometerAlt,
     FaBoxOpen,
@@ -9,48 +9,57 @@ import {
 import { motion } from "framer-motion";
 
 import "./AdminSidebar.css";
+import { useState } from "react";
 
 const AdminSidebar = () => {
+
+
+    const navigate = useNavigate();
+
+    const [expanded, setExpanded] = useState(false);
+
     return (
         <motion.aside
-            className="admin-sidebar"
+            className={`admin-sidebar ${expanded ? "expanded" : ""}`}
+            onMouseEnter={() => setExpanded(true)}
+            onMouseLeave={() => setExpanded(false)}
             initial={{ x: -80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
                 duration: 0.5,
                 ease: "easeOut",
-            }} className="admin-sidebar">
+            }}>
 
-            <div className="admin-logo">
+            <div className="admin-logo" onClick={() => navigate('/')}>
 
                 <img
                     src="/images/logo.png"
                     alt="TurboToys"
                 />
 
-                <h2>TurboToys</h2>
+                <h2 className="menu-text">TurboToys</h2>
 
             </div>
 
-            <Link to="/admin/dashboard">
+            <NavLink to="/admin/dashboard" className={({ isActive }) => (isActive ? "active" : "")}>
                 <FaTachometerAlt />
-                Dashboard
-            </Link>
+                <span className="menu-text">Dashboard</span>
+            </NavLink>
 
-            <Link to="/admin/products">
+            <NavLink to="/admin/products" className={({ isActive }) => (isActive ? "active" : "")}>
                 <FaBoxOpen />
-                Products
-            </Link>
+                <span className="menu-text">Products</span>
+            </NavLink>
 
-            <Link to="/admin/orders">
+            <NavLink to="/admin/orders" className={({ isActive }) => (isActive ? "active" : "")}>
                 <FaShoppingBag />
-                Orders
-            </Link>
+                <span className="menu-text">Orders</span>
+            </NavLink>
 
-            <Link to="/admin/users">
+            <NavLink to="/admin/users" className={({ isActive }) => (isActive ? "active" : "")}>
                 <FaUsers />
-                Users
-            </Link>
+                <span className="menu-text">Users</span>
+            </NavLink>
 
         </motion.aside>
     );

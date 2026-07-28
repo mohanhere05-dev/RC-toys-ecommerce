@@ -60,7 +60,7 @@
 
 .nav-links li a {
     text-decoration: none;
-    font-size:14px;
+    font-size: 14px;
     font-weight: 500;
     color: black;
     position: relative;
@@ -160,10 +160,16 @@
 }
 
 .nav-action .cart-btn svg {
+    color: black;
     display: block;
     position: relative;
     top: 5px;
     left: 5px;
+    font-size: 18px;
+}
+
+.cart-btn svg:hover{
+    color: white;
 }
 
 .profile-menu {
@@ -373,7 +379,7 @@
         font-size: 18px;
     }
 
-    .wishlist-nav-icon{
+    .wishlist-nav-icon {
         font-size: 16px;
         margin-right: 6px;
         color: red;
@@ -384,7 +390,7 @@
         text-decoration: none;
     }
 
-    .hambuger .cart-icon:hover{
+    .hambuger .cart-icon:hover {
         color: var(--BLUE);
     }
 

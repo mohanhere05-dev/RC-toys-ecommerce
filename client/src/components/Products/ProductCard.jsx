@@ -83,7 +83,7 @@ const Product = ({ id, image, name, price, category, description, stock }) => {
 
                 <div className='product-content'>
                     <h3>{name}</h3>
-                    <h2>${price}</h2>
+                    <h2>₹ {price}</h2>
                 </div>
 
                 <div className="rating">
