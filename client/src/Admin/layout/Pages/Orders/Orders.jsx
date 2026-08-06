@@ -141,7 +141,7 @@ const Orders = () => {
 
                                 <td>
 
-                                    <select
+                                    <select className="status"
 
                                         value={order.orderStatus}
 

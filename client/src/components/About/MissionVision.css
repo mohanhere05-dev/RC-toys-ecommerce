@@ -9,71 +9,62 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     margin-bottom: 200px;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
-.mission-card {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: start;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-    transition: .3s ease;
-}
-
-.mission-card h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.mission-card p {
-    color: #666;
-    line-height: 1.8;
-    font-size: 1rem;
-}
-
-.mission-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
-}
-
+.mission-card,
 .vision-card {
-    background: var(--BLUE);
+    background: rgba(17, 25, 40, 0.50);
     padding: 40px;
     border-radius: 20px;
     text-align: start;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-    transition: .3s ease;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.35s ease;
 }
 
+.mission-card h2,
 .vision-card h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-    color: white;
+    color: #ffffff;
+    font-weight: 700;
 }
 
+.mission-card p,
 .vision-card p {
-    color: #ffff;
+    color: rgba(255, 255, 255, 0.82);
     line-height: 1.8;
     font-size: 1rem;
 }
 
+.mission-card:hover,
 .vision-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(41, 146, 255, 0.35);
+    box-shadow: 0 15px 40px rgba(41, 146, 255, 0.20);
 }
 
 .icon-box {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 25px;
     border-radius: 50%;
-    background: #0d6efd;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #2992ff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    transition: all 0.35s ease;
+}
+
+.icon-box:hover {
+    background: #2992ff;
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 0 24px rgba(41, 146, 255, 0.20);
 }
 
 @media (max-width:480px) {
@@ -86,55 +77,29 @@
         margin-top: 100px;
     }
 
-    .mission-card {
-        background: #fff;
+    .mission-card,
+    .vision-card {
+        background: rgba(17, 25, 40, 0.50);
         padding: 24px;
-        border-radius: 12px;
+        border-radius: 20px;
         text-align: start;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-        transition: .3s ease;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.35s ease;
     }
 
-    .mission-card h2 {
+    .mission-card h2,
+    .vision-card h2 {
         margin-bottom: 12px;
         font-size: 20px;
+        font-weight: 700;
     }
 
-    .mission-card p {
-        color: #666;
-        line-height: 1.8;
-        font-size: 1rem;
-    }
-
-    .mission-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
-    }
-
-    .vision-card {
-        background: var(--BLUE);
-        padding: 24px;
-        border-radius: 12px;
-        text-align: start;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-        transition: .3s ease;
-    }
-
-    .vision-card h2 {
-        margin-bottom: 20px;
-        font-size: 20px;
-        color: white;
-    }
-
+    .mission-card p,
     .vision-card p {
-        color: #ffff;
+        color: rgba(255, 255, 255, 0.82);
         line-height: 1.8;
         font-size: 1rem;
-    }
-
-    .vision-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
     }
 
     .icon-box {
@@ -142,11 +107,13 @@
         height: 40px;
         margin-bottom: 12px;
         border-radius: 50%;
-        background: #0d6efd;
-        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #2992ff;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 18px;
+        transition: all 0.35s ease;
     }
 }

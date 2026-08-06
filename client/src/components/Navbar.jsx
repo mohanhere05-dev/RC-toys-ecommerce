@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import logo from '../../public/images/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaHeart } from "react-icons/fa";
@@ -16,6 +16,7 @@ import './Navbar.css'
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false)
+    const [scrolled, setScrolled] = useState(false)
 
     const cartItems = useSelector((state) => state.cart.cartItems);
 
@@ -45,6 +46,19 @@ const Navbar = () => {
 
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 8);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -69,7 +83,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='navbar'>
+            <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className='logo' onClick={() => navigate('/')}>
                     <img src={logo} alt="" />
                     <h1>V²-TurboToys</h1>
@@ -77,20 +91,20 @@ const Navbar = () => {
 
                 <div className='nav-links'>
                     <ul>
-                        <li><Link to={'/'}>Home</Link></li>
-                        <li><Link to={'/products'}>Products</Link></li>
-                        <li><Link to={'/about'}>About Us</Link></li>
-                        <li><Link to={'/contact'}>Contact Us</Link></li>
+                        <li><NavLink to={'/'} end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink></li>
+                        <li><NavLink to={'/products'} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Products</NavLink></li>
+                        <li><NavLink to={'/about'} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>About Us</NavLink></li>
+                        <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact Us</NavLink></li>
                     </ul>
                 </div>
 
                 <div className="nav-action">
                     <div className="wishlist-wrapper">
-                        <Link to="/wishlist">
+                        <Link to="/wishlist" className="icon-btn">
                             <FaHeart className="wishlist-nav-icon" />
                         </Link>
                     </div>
-                    <Link to={"/cart"} className="cart-wrapper">
+                    <Link to={"/cart"} className="cart-wrapper icon-btn">
                         <button className="cart-btn"><PiShoppingCartSimpleFill /></button>
                         {totalItems > 0 && (
                             <span className="cart-badge">
@@ -127,7 +141,7 @@ const Navbar = () => {
                                 }
                             </div>
                         ) : (
-                            <Link to="/login">
+                            <Link to="/login" className="login-link">
                                 Login
                             </Link>
                         )
@@ -136,11 +150,11 @@ const Navbar = () => {
 
 
                 <div className="hambuger" onClick={() => setMenuOpen(!menuOpen)}>
-                    <Link to="/wishlist">
+                    <Link to="/wishlist" className="icon-btn">
                         <FaHeart className="wishlist-nav-icon" />
                     </Link>
-                    <Link className='cart-icon' to="/cart" onClick={() => setMenuOpen(false)}> <IoCartOutline /> </Link>
-                    <GiHamburgerMenu /></div>
+                    <Link className='cart-icon icon-btn' to="/cart" onClick={() => setMenuOpen(false)}> <IoCartOutline /> </Link>
+                    <div className="menu-icon-button"><GiHamburgerMenu /></div></div>
 
                 {menuOpen && (
                     <div className='overlay' onClick={() => setMenuOpen(false)}></div>
@@ -148,21 +162,21 @@ const Navbar = () => {
 
                 <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
 
-                    <Link to="/" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                         Home
-                    </Link>
+                    </NavLink>
 
-                    <Link to="/products" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/products" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                         Products
-                    </Link>
+                    </NavLink>
 
-                    <Link to="/about" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/about" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                         About Us
-                    </Link>
+                    </NavLink>
 
-                    <Link to="/contact" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                         Contact Us
-                    </Link>
+                    </NavLink>
 
 
 

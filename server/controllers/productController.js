@@ -24,6 +24,9 @@ export const createProduct = async (req, res) => {
 
     try {
 
+        console.log("REQ FILE:", req.file); // <-- Itha potu check pannunga
+        console.log("REQ BODY:", req.body);
+
         const product = await Product.create({
 
             name: req.body.name,
@@ -36,13 +39,10 @@ export const createProduct = async (req, res) => {
 
             stock: req.body.stock,
 
-            image: req.file
-                ? `/uploads/products/${req.file.filename}`
-                : "",
+            image: req.file ? req.file.path : "",
 
         });
 
-        await product.save();
 
         res.status(201).json(product);
 

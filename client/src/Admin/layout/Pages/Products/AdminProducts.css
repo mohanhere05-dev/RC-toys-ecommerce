@@ -2,10 +2,18 @@
     --BLUE: #2992ff;
 }
 
+body {
+    background:
+        radial-gradient(circle at top left, rgba(41, 146, 255, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at bottom right, rgba(41, 146, 255, 0.16) 0%, transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+    color: #fff;
+}
+
 .admin-products {
     display: flex;
     flex-direction: column;
-    background: #f8fafc;
+    background: transparent;
     padding: 30px;
 }
 
@@ -13,59 +21,99 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 18px 20px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .products-header h1 {
     font-size: 32px;
-    color: #1e293b;
+    color: #fff;
+    margin: 0;
+}
+
+.products-header input {
+    flex: 1;
+    max-width: 100vw;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.products-header input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.products-header input:focus {
+    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, 0.2);
 }
 
 .products-header button {
-    background: var(--BLUE);
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 12px 22px;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 15px;
     font-weight: 600;
-    transition: .3s;
+    transition: all .3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .products-header button:hover {
-    background: #1678dc;
+    background: linear-gradient(135deg, #2992ff, #5bb0ff);
+    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, 0.24);
 }
 
 .table-wrapper {
     flex: 1;
     overflow-y: auto;
+    overflow-x: auto;
     min-height: 0;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .table-wrapper table {
     width: 100%;
     border-collapse: collapse;
+    background: transparent;
 }
 
 thead th {
     position: sticky;
     top: 0;
     z-index: 999;
-    background: #2992ff;
+    background: linear-gradient(135deg, rgba(41, 146, 255, 0.95), rgba(91, 176, 255, 0.95));
     color: #fff;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    background: transparent;
 }
 
 thead {
-    background: #2992ff;
+    background: transparent;
     color: white;
 }
 
@@ -77,12 +125,13 @@ thead th {
 
 tbody td {
     padding: 18px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     vertical-align: middle;
+    color: rgba(255, 255, 255, 0.86);
 }
 
 tbody tr:hover {
-    background: #f5f9ff;
+    background: rgba(41, 146, 255, 0.12);
 }
 
 tbody img {
@@ -90,44 +139,43 @@ tbody img {
     height: 70px;
     object-fit: cover;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 tbody button {
     border: none;
     padding: 8px 14px;
     margin-right: 8px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
-    transition: .3s;
+    transition: all .3s ease;
 }
 
 tbody button:first-child {
-    background: #ffd864;
+    background: rgba(255, 216, 100, 0.24);
     padding: 8px 20px;
-    color: #222;
+    color: #fff9c4;
 }
 
 tbody button:first-child:hover {
-    background: #ffc108;
+    background: rgba(255, 216, 100, 0.36);
 }
 
 tbody button:last-child {
-    background: #dc3545;
-    color: white;
+    background: rgba(220, 53, 69, 0.24);
+    color: #ffd6da;
 }
 
 tbody button:last-child:hover {
-    background: #b52a37;
+    background: rgba(220, 53, 69, 0.36);
 }
-
-/* Modal */
 
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, .55);
+    background: rgba(2, 6, 23, 0.72);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,15 +184,20 @@ tbody button:last-child:hover {
 
 .modal {
     width: 500px;
-    background: white;
-    border-radius: 16px;
+    max-width: calc(100vw - 24px);
+    background: rgba(17, 25, 40, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     padding: 30px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
     animation: popup .25s ease;
 }
 
 @keyframes popup {
     from {
-        transform: scale(.9);
+        transform: scale(.95);
         opacity: 0;
     }
 
@@ -156,19 +209,22 @@ tbody button:last-child:hover {
 
 .modal h2 {
     margin-bottom: 25px;
-    color: #1e293b;
+    color: #fff;
 }
 
 .modal input,
-.modal textarea {
+.modal textarea,
+.modal select {
     width: 100%;
     margin-bottom: 16px;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
     outline: none;
     font-size: 15px;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
 }
 
 .modal textarea {
@@ -176,9 +232,16 @@ tbody button:last-child:hover {
     resize: vertical;
 }
 
+.modal input::placeholder,
+.modal textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
 .modal input:focus,
-.modal textarea:focus {
+.modal textarea:focus,
+.modal select:focus {
     border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, 0.2);
 }
 
 .modal-buttons {
@@ -191,49 +254,28 @@ tbody button:last-child:hover {
 .modal-buttons button {
     border: none;
     padding: 11px 22px;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
+    transition: all .3s ease;
 }
 
 .modal-buttons button:first-child {
-    background: #e5e7eb;
-    color: #111;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .modal-buttons button:last-child {
-    background: #2992ff;
+    background: linear-gradient(135deg, #2992ff, #5bb0ff);
     color: white;
 }
 
 .modal-buttons button:last-child:hover {
-    background: #1678dc;
-}
-
-.products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.products-header input {
-    flex: 1;
-    max-width: 100vw;
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    font-size: 15px;
-}
-
-.products-header input:focus {
-    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, 0.24);
 }
 
 @media (max-width:480px) {
-
     .admin-products {
         padding: 0;
     }
@@ -242,6 +284,8 @@ tbody button:last-child:hover {
         flex-direction: column;
         align-items: stretch;
         gap: 15px;
+        padding: 12px;
+        border-radius: 12px;
     }
 
     .products-header h1 {
@@ -257,7 +301,7 @@ tbody button:last-child:hover {
 
     .products-header button {
         width: 100px;
-        border-radius: 6px;
+        border-radius: 8px;
         padding: 8px;
         font-size: 8px;
     }
@@ -267,7 +311,7 @@ tbody button:last-child:hover {
         height: auto;
         overflow-x: auto;
         overflow-y: auto;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .table-wrapper table {
@@ -300,7 +344,7 @@ tbody button:last-child:hover {
     }
 
     .modal {
-        width: 95%;
+        width: calc(100vw - 20px);
         max-height: 90vh;
         padding: 20px;
         overflow-y: auto;
@@ -311,7 +355,8 @@ tbody button:last-child:hover {
     }
 
     .modal input,
-    .modal textarea {
+    .modal textarea,
+    .modal select {
         font-size: 14px;
         padding: 10px;
     }
@@ -323,16 +368,4 @@ tbody button:last-child:hover {
     .modal-buttons button {
         width: 100%;
     }
-
-    tbody button:first-child {
-        background: #ffd864;
-        padding: 4px 12px;
-        color: #222;
-    }
-
-    tbody button:first-child:hover {
-        background: #ffc108;
-    }
-
-
 }

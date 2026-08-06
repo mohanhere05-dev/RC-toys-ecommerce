@@ -2,20 +2,30 @@
     --BLUE: #2992ff;
 }
 
-.admin-sidebar {
-    width: 260px;
-    background: #111827;
+body {
+    background:
+        radial-gradient(circle at top left, rgba(41, 146, 255, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at bottom right, rgba(41, 146, 255, 0.16) 0%, transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
     color: #fff;
-    height: 100vh;
-    padding: 30px 20px;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    overflow-y: auto;
 }
 
 .admin-sidebar {
     width: 70px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    height: calc(100vh - 24px);
+    padding: 24px 16px;
+    position: sticky;
+    top: 12px;
+    bottom: 12px;
+    overflow-y: auto;
+    margin: 12px 0 12px 12px;
     transition: width .3s ease;
 }
 
@@ -37,31 +47,38 @@
 }
 
 .admin-sidebar h2 {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     text-align: center;
+    color: #fff;
 }
 
 .admin-sidebar a {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 16px;
-
+    gap: 14px;
     height: 50px;
-    padding: 0 18px;
-    margin-bottom: 12px;
-    margin-left: -16px;
-
-    color: #cbd5e1;
+    padding: 0 14px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.82);
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     transition: all .3s ease;
+}
+
+.admin-sidebar svg{
+    position: relative;
+    right: 6px;
 }
 
 .admin-sidebar a:hover,
 .admin-sidebar a.active {
-    background: var(--BLUE);
+    background: linear-gradient(135deg, rgba(41, 146, 255, 0.95), rgba(91, 176, 255, 0.95));
     color: #fff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, 0.24);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .admin-logo {
@@ -69,11 +86,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
     text-decoration: none;
     cursor: pointer;
 }
-
 
 .admin-logo img {
     width: 45px;
@@ -92,23 +108,29 @@
     min-height: 22px;
     font-size: 20px;
     flex-shrink: 0;
+    color: #fff;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(41, 146, 255, 0.7);
+    border-radius: 999px;
 }
 
 @media (max-width:480px) {
     .admin-sidebar {
-        width: 130px;
-        background: #111827;
-        color: #fff;
-        min-height: 100vh;
-        padding: 15px 10px;
-        position: sticky;
-        top: 0;
-        overflow-y: auto;
-    }
-
-    .admin-sidebar {
         width: 70px;
-        transition: width .3s ease;
+        min-height: 100vh;
+        padding: 14px 8px;
+        border-radius: 16px;
+        margin: 8px 0 8px 8px;
     }
 
     .admin-sidebar.expanded {
@@ -130,44 +152,27 @@
     }
 
     .admin-sidebar h2 {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
     .admin-sidebar a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 16px;
-        height: 20px;
-        padding: 12px 8px;
-        margin: 0 6px;
-        margin-bottom: 12px;
-        color: #cbd5e1;
-        text-decoration: none;
-        border-radius: 6px;
-        transition: all .3s ease;
+        gap: 10px;
+        height: 42px;
+        padding: 0 24px;
+        margin: 0 0 8px;
+        border-radius: 10px;
     }
 
     .admin-sidebar svg {
-        min-width: 8px;
-        min-height: 8px;
-        font-size: 12px;
-        flex-shrink: 0;
-    }
-
-    .admin-sidebar a:hover,
-    .admin-sidebar a.active {
-        background: var(--BLUE);
-        color: #fff;
+        min-width: 12px;
+        min-height: 12px;
+        font-size: 16px;
     }
 
     .admin-logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         gap: 6px;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
 
     .admin-logo img {

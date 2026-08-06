@@ -9,7 +9,7 @@ import './Products.css'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import ProductCard from '../../components/Products/ProductCard'
-import Loading from "../../components/Loading";
+import ProductSkeleton from '../../components/Products/ProductSkeleton'
 
 import { MdClear } from "react-icons/md";
 import { RiCloseFill } from "react-icons/ri";
@@ -89,70 +89,6 @@ const Products = () => {
             });
     }, []);
 
-    // const products = [
-    //     {
-    //         id: 1,
-    //         image: driftCar,
-    //         badge: "NEW",
-    //         title: "Specter GT-1",
-    //         price: 599,
-    //         rating: 5,
-    //         reviews: 48,
-    //     },
-    //     {
-    //         id: 2,
-    //         image: offRoad,
-    //         badge: "HOT",
-    //         title: "Desert Beast",
-    //         price: 699,
-    //         rating: 4,
-    //         reviews: 31,
-    //     },
-    //     {
-    //         id: 3,
-    //         image: racingCar,
-    //         badge: "SALE",
-    //         title: "Formula X",
-    //         price: 499,
-    //         rating: 5,
-    //         reviews: 18,
-    //     },
-    //     {
-    //         id: 4,
-    //         image: monsterTruck,
-    //         badge: "NEW",
-    //         title: "Monster King",
-    //         price: 799,
-    //         rating: 5,
-    //         reviews: 63,
-    //     },
-    //     {
-    //         id: 5,
-    //         image: driftCar,
-    //         badge: "HOT",
-    //         title: "Drift Master",
-    //         price: 549,
-    //         rating: 4,
-    //         reviews: 26,
-    //     },
-    //     {
-    //         id: 6,
-    //         image: racingCar,
-    //         badge: "SALE",
-    //         title: "Turbo Racer",
-    //         price: 649,
-    //         rating: 5,
-    //         reviews: 41,
-    //     },
-    // ];
-    if (loading) {
-        return (
-            <>
-                <Navbar />
-                <Loading />
-            </>
-        );
-    }
     return (
         <>
             <Navbar />
@@ -318,7 +254,9 @@ const Products = () => {
                     {/* <ProductGrid /> */}
                     <div className="products-grid">
 
-                        {sortedProducts.length > 0 ? (
+                        {loading ? (
+                            <ProductSkeleton count={4} />
+                        ) : sortedProducts.length > 0 ? (
                             sortedProducts.map((product) => (
                                 <ProductCard
                                     key={product._id}
@@ -330,11 +268,8 @@ const Products = () => {
                                     description={product.description}
                                     stock={product.stock}
                                 />
-
                             ))
-
                         ) : (
-
                             <div className="no-products">
                                 <h2>No Products Found 😔</h2>
                                 <p>
@@ -342,7 +277,6 @@ const Products = () => {
                                     "<strong>{searchTerm}</strong>"
                                 </p>
                             </div>
-
                         )}
 
                     </div>

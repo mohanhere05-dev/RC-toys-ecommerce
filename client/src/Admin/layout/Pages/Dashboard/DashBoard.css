@@ -2,6 +2,14 @@
     --BLUE: #2992ff;
 }
 
+body {
+    background:
+        radial-gradient(circle at top left, rgba(41, 146, 255, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at bottom right, rgba(41, 146, 255, 0.16) 0%, transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+    color: #fff;
+}
+
 .dashboard {
     padding: 35px;
 }
@@ -9,35 +17,40 @@
 .dashboard h1 {
     font-size: 34px;
     margin-bottom: 8px;
+    color: #fff;
 }
 
 .dashboard p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.72);
     margin-bottom: 30px;
 }
 
 .dashboard-cards {
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
 }
 
 .dashboard-card {
-    background: #fff;
-    border-radius: 16px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-    transition: .3s;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    transition: all .3s ease;
 }
 
 .dashboard-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(41, 146, 255, 0.2);
 }
 
 .dashboard-card h3 {
     font-size: 18px;
-    color: #555;
+    color: rgba(255, 255, 255, 0.82);
     margin-bottom: 20px;
 }
 
@@ -52,111 +65,110 @@
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-
 }
 
 .chart-card {
     width: 100%;
     height: 50vh;
     margin-top: 30px;
-    background: #fff;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .chart-card h2 {
     margin-bottom: 25px;
-    color: #1e293b;
+    color: #fff;
 }
 
 .charts-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
     margin-top: 30px;
-
 }
 
-.chart-card {
-    background: #fff;
-    border-radius: 18px;
-    padding: 15px;
-    height: 400px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-
+.recent-orders,
+.low-stock,
+.recent-users {
+    margin-top: 32px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
-@media(max-width:900px) {
-
-    .charts-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-.recent-orders {
-    margin-top: 80px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-}
-
-.recent-orders h2 {
+.recent-orders h2,
+.low-stock h2,
+.recent-users h2 {
     margin-bottom: 20px;
+    color: #fff;
+}
+
+.recent-orders table,
+.recent-orders th,
+.recent-orders td,
+.recent-users table,
+.recent-users th,
+.recent-users td {
+    border-collapse: collapse;
 }
 
 .recent-orders table {
     width: 100%;
-    border-collapse: collapse;
 }
 
 .recent-orders th {
-    background: var(--BLUE);
+    background: rgba(41, 146, 255, 0.95);
     color: #fff;
     padding: 14px;
     text-align: left;
+    position: sticky;
+    top: 0;
 }
 
 .recent-orders td {
     padding: 14px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.86);
 }
 
-.low-stock {
-    margin-top: 30px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+.recent-orders tr:hover,
+.recent-users tr:hover {
+    background: rgba(41, 146, 255, 0.12);
 }
 
-.low-stock h2 {
-    margin-bottom: 20px;
-}
-
-.low-stock-list {
+.low-stock-list,
+.recent-users-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.low-stock-card {
+.low-stock-card,
+.recent-user-card {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     padding: 12px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    transition: .3s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all .3s ease;
 }
 
-.low-stock-card:hover {
+.low-stock-card:hover,
+.recent-user-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    background: rgba(41, 146, 255, 0.12);
 }
 
 .low-stock-card img {
@@ -166,53 +178,28 @@
     border-radius: 10px;
 }
 
-.low-stock-card h4 {
+.low-stock-card h4,
+.user-info h4 {
     margin-bottom: 5px;
+    color: #fff;
 }
 
 .low-stock-card strong {
-    color: #dc2626;
+    color: #5bb0ff;
     font-size: 17px;
 }
 
-.recent-users {
-    margin-top: 30px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-}
-
-.recent-users h2 {
-    margin-bottom: 20px;
-}
-
-.recent-users-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.recent-user-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    transition: .3s;
-}
-
-.recent-user-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+.low-stock-card p,
+.user-info p,
+.user-info small {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .user-avatar {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: var(--BLUE);
+    background: linear-gradient(135deg, #2992ff, #5bb0ff);
     color: #fff;
     display: flex;
     justify-content: center;
@@ -221,18 +208,21 @@
     font-weight: 700;
 }
 
-.user-info h4 {
-    margin: 0;
-    color: #1e293b;
+@media (max-width: 900px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.user-info p {
-    margin: 4px 0;
-    color: #64748b;
-}
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 20px;
+    }
 
-.user-info small {
-    color: #94a3b8;
+    .dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
 }
 
 @media (max-width:480px) {
@@ -248,44 +238,31 @@
 
     .dashboard p {
         text-align: center;
-        color: #666;
         font-size: 12px;
-        margin-bottom: 28px;
+        margin-bottom: 20px;
     }
 
     .dashboard-cards {
-        text-align: center;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
-        margin-left: 40px;
-
+        margin-left: 0;
     }
 
     .dashboard-card {
-        height: 84px;
-        width: 120px;
-        background: #fff;
-        border-radius: 6px;
+        height: auto;
+        width: 100%;
+        border-radius: 12px;
         padding: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-        transition: .3s;
-    }
-
-    .dashboard-card:hover {
-        transform: translateY(-5px);
     }
 
     .dashboard-card h3 {
         font-size: 12px;
-        color: #555;
         margin-bottom: 6px;
     }
 
     .dashboard-card span {
         font-size: 14px;
-        font-weight: 700;
-        color: var(--BLUE);
     }
 
     .dashboardChart {
@@ -298,190 +275,83 @@
         text-align: center;
         width: 100%;
         height: 330px;
-        margin-top: 30px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+        margin-top: 20px;
+        border-radius: 12px;
+        padding: 12px;
     }
 
     .chart-card h2 {
         font-size: 12px;
         margin-bottom: 15px;
-        color: #1e293b;
-
     }
 
-    .charts-grid {
-        display: grid;
-        grid-template-columns: repeat(1fr);
-        gap: 12px;
-    }
-
-    .chart-card {
-        background: #fff;
-        border-radius: 8px;
+    .recent-orders,
+    .low-stock,
+    .recent-users {
+        margin-top: 20px;
         padding: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+        border-radius: 12px;
     }
 
-    .recent-orders {
-        margin-top: 60px;
-        background: #fff;
-        padding: 12px;
-        border-radius: 6px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
-    }
-
-    .recent-orders h2 {
+    .recent-orders h2,
+    .low-stock h2,
+    .recent-users h2 {
         font-size: 12px;
         margin-bottom: 10px;
     }
 
     .recent-orders table {
-        width: 100%;
-        height: 100%;
-        overflow: scroll;
-        border-radius: 12px ;
-        border-collapse: collapse;
+        min-width: 420px;
     }
 
     .recent-orders th {
-        background: var(--BLUE);
-        color: #fff;
         padding: 8px;
-        text-align: left;
         font-size: 8px;
-        position: relative;
-        
     }
 
     .recent-orders td {
         font-size: 8px;
         padding: 6px;
-        border-bottom: 1px solid #eee;
-    }
-
-    .low-stock {
-        margin-top: 24px;
-        background: #fff;
-        padding: 12px;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-
-    }
-
-    .low-stock h2 {
-        font-size: 12px;
-        margin-bottom: 12px;
-
-    }
-
-    .low-stock-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
     }
 
     .low-stock-card {
-        display: flex;
-        align-items: center;
         gap: 8px;
         padding: 6px;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        transition: .3s;
-    }
-
-    .low-stock-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        border-radius: 8px;
     }
 
     .low-stock-card img {
         width: 30px;
         height: 30px;
-        object-fit: cover;
-        border-radius: 6px;
     }
 
     .low-stock-card h4 {
         font-size: 8px;
     }
 
-    .low-stock-card p{
-        font-size: 8px;
-    }
-
+    .low-stock-card p,
     .low-stock-card strong {
-        color: #dc2626;
         font-size: 8px;
-    }
-
-    .recent-users {
-        margin-top: 16px;
-        background: #fff;
-        padding: 12px;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-    }
-
-    .recent-users h2 {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-
-    .recent-users-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
     }
 
     .recent-user-card {
-        overflow: hidden;
-        display: flex;
-        align-items: center;
         gap: 8px;
         padding: 6px;
-        border: 1px solid #eee;
-        border-radius: 12px;
-        transition: .3s;
-    }
-
-    .recent-user-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        border-radius: 8px;
     }
 
     .user-avatar {
         width: 35px;
         height: 35px;
-        border-radius: 50%;
-        background: var(--BLUE);
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 12px;
-        font-weight: 700;
     }
 
     .user-info h4 {
         font-size: 12px;
-        margin: 0;
-        color: #1e293b;
     }
 
-    .user-info p {
-        font-size: 8px;
-        margin: 4px 0;
-        color: #64748b;
-    }
-
+    .user-info p,
     .user-info small {
         font-size: 8px;
-        color: #94a3b8;
     }
-
-
 }

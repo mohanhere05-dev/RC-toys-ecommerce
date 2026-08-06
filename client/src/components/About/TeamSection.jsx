@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import "./TeamSection.css";
+import TeamSkeleton from "./TeamSkeleton";
 
 import member1 from "../../../public/team-members/member1.webp";
 import member2 from "../../../public/team-members/member2.webp";
@@ -35,6 +36,8 @@ const team = [
 ];
 
 const TeamSection = () => {
+    const loading = false;
+
     return (
         <section className="team-section">
 
@@ -54,31 +57,33 @@ const TeamSection = () => {
             </motion.div>
 
             <div className="team-grid">
+                {loading ? (
+                    <TeamSkeleton count={4} />
+                ) : (
+                    team.map((member, index) => (
 
-                {team.map((member, index) => (
+                        <motion.div
+                            key={member.id}
+                            className="team-card"
+                            initial={{ opacity: 0, y: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 0.1,
 
-                    <motion.div
-                        key={member.id}
-                        className="team-card"
-                        initial={{ opacity: 0, y: 0 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.1,
+                            }}
+                            viewport={{ once: true }}
+                            whileHover={{
+                                y: -10,
+                            }}
+                        >
 
-                        }}
-                        viewport={{ once: true }}
-                        whileHover={{
-                            y: -10,
-                        }}
-                    >
+                            <img src={`${member.image}?w=900&auto=format&fit=crop&q=80`} alt={member.name} />
+                            <h3>{member.name}</h3>
+                            <span>{member.role}</span>
+                        </motion.div>
 
-                        <img src={`${member.image}?w=900&auto=format&fit=crop&q=80`} alt={member.name} />
-                        <h3>{member.name}</h3>
-                        <span>{member.role}</span>
-                    </motion.div>
-
-                ))}
-
+                    ))
+                )}
             </div>
 
         </section>

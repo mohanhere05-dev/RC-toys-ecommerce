@@ -1,58 +1,22 @@
-import multer from "multer";
-import path from "path";
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import multer from 'multer';
 
-// Storage Configuration
-const storage = multer.diskStorage({
-
-    destination: (req, file, cb) => {
-
-        cb(null, "uploads/products");
-
-    },
-
-    filename: (req, file, cb) => {
-
-        const uniqueName =
-            Date.now() +
-            "-" +
-            Math.round(Math.random() * 1e9) +
-            path.extname(file.originalname);
-
-        cb(null, uniqueName);
-
-    },
-
+// Cloudinary config (Ithula unga credentials-ah podunga or .env la store pannikonga)
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// File Filter
-const fileFilter = (req, file, cb) => {
-
-    const allowedTypes = /jpg|jpeg|png|webp/;
-
-    const isValidExt = allowedTypes.test(
-        path.extname(file.originalname).toLowerCase()
-    );
-
-    const isValidMime = allowedTypes.test(file.mimetype);
-
-    if (isValidExt && isValidMime) {
-
-        cb(null, true);
-
-    } else {
-
-        cb(new Error("Only JPG, PNG and WEBP images are allowed"));
-
-    }
-
-};
-
-const upload = multer({
-
-    storage,
-
-    fileFilter,
-
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'rc-toys-uploads', // Unga cloudinary la intha folder la image save agum
+        allowed_formats: ['jpg', 'png', 'jpeg', 'webp'],
+    },
 });
+
+const upload = multer({ storage: storage });
 
 export default upload;

@@ -1,13 +1,70 @@
+:root {
+    --blue: #2992ff;
+    --glass: rgba(17, 25, 40, 0.55);
+    --glass-strong: rgba(17, 25, 40, 0.72);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.72);
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at top left, rgba(41, 146, 255, 0.18) 0%, transparent 35%),
+        radial-gradient(circle at bottom right, rgba(41, 146, 255, 0.16) 0%, transparent 30%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #111827 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2992ff, #5bb0ff);
+    border-radius: 999px;
+}
+
 .admin-layout {
     display: flex;
-    height: 100vh;
-    background: #f5f7fb;
+    min-height: 100vh;
+    background: transparent;
 }
 
 .admin-content {
     flex: 1;
-    height: 100vh;
+    min-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 30px;
+}
+
+.admin-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.admin-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2992ff, #5bb0ff);
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .admin-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-content {
+        padding: 16px;
+    }
 }

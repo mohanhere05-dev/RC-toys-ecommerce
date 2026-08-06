@@ -8,16 +8,19 @@
 }
 
 .contact-form {
-    background: #fff;
+    background: rgba(17, 25, 40, .55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
     padding: 45px;
-    border-radius: 18px;
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, .08);
 }
 
 .contact-form h2 {
     margin-bottom: 30px;
     font-size: 1.5rem;
+    color: #fff;
 }
 
 .input-row {
@@ -28,49 +31,64 @@
 
 .input-row input {
     width: 100%;
-    padding: 10px;
-    border: 3px solid #ddd;
-    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
     outline: none;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
     font-size: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input,
 textarea {
-    border: 3px solid #ddd;
-    transition: .3s;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, .6);
 }
 
 input:focus,
 textarea:focus {
-    border-color: var(--BLUE);
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, .15);
+    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, .35);
 }
 
 textarea {
     width: 100%;
     padding: 16px;
-    border: 3px solid #ddd;
-    border-radius: 10px;
     resize: none;
     outline: none;
     font-size: 12px;
     margin-bottom: 25px;
+    min-height: 160px;
 }
 
 .contact-form button {
-    background: var(--BLUE);
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: #fff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, .12);
     padding: 12px 32px;
-    border-radius: 8px;
+    border-radius: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: .3s;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form button:hover {
-    background: black;color: white;
+    background: #2992ff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(41, 146, 255, .35);
 }
 
 @media (max-width:480px) {
@@ -80,11 +98,9 @@ textarea {
     }
 
     .contact-form {
-        background: #fff;
+        background: rgba(17, 25, 40, .55);
         padding: 25px;
-        border-radius: 8px;
-        box-shadow:
-            0 10px 30px rgba(0, 0, 0, .08);
+        border-radius: 20px;
     }
 
     .contact-form h2 {
@@ -96,53 +112,25 @@ textarea {
         display: flex;
         gap: 10px;
         margin-bottom: 10px;
+        flex-wrap: wrap;
     }
 
     .input-row input {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        outline: none;
+        padding: 12px 14px;
         font-size: 12px;
-    }
-
-    input,
-    textarea {
-        border: 1px solid #ddd;
-        transition: .3s;
-    }
-
-    input:focus,
-    textarea:focus {
-        border-color: var(--BLUE);
-        box-shadow: 0 0 0 4px rgba(13, 110, 253, .15);
     }
 
     textarea {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        resize: none;
-        outline: none;
-        font-size:12px;
+        padding: 12px 14px;
+        font-size: 12px;
         margin-bottom: 12px;
     }
 
     .contact-form button {
-        background: var(--BLUE);
-        color: #fff;
-        border: none;
         padding: 10px 18px;
-        border-radius: 6px;
-        font-weight: 500;
-        cursor: pointer;
+        border-radius: 14px;
         font-size: 12px;
-        transition: .3s;
-    }
-
-    .contact-form button:hover {
-        background: var(--BLUE);
     }
 }

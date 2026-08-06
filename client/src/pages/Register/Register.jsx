@@ -223,11 +223,11 @@ const Register = () => {
 
                 </form>
 
-                <p className="login-link">
+                <p className="loginlink"  style={{background:"none"}}>
 
                     Already have an account?
 
-                    <Link to="/login">
+                    <Link to="/login" className="loginto">
                         Login
                     </Link>
 

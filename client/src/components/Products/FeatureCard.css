@@ -1,71 +1,90 @@
 :root {
     --BLUE: #2992ff;
+    --CARD-BG: rgba(255, 255, 255, 0.08);
+    --CARD-BORDER: rgba(255, 255, 255, 0.12);
+    --CARD-SHADOW: 0 8px 30px rgba(0, 0, 0, 0.25);
+    --CARD-HOVER-SHADOW: 0 12px 35px rgba(41, 146, 255, 0.25);
+    --TEXT: #ffffff;
+    --TEXT-MUTED: #d1d5db;
 }
 
 .feature-card {
     height: 300px;
     width: 320px;
-    border-radius: 12px;
-    box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.12);
-    border: none;
+    border-radius: 20px;
+    box-shadow: var(--CARD-SHADOW);
+    border: 1px solid var(--CARD-BORDER);
     outline: none;
-    background-color: white;
+    background: var(--CARD-BG);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--CARD-HOVER-SHADOW);
 }
 
 .feature-icon {
     font-size: 32px;
-    background-color: #d5e0f8;
-    color: blue;
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--BLUE);
     height: 72px;
     width: 72px;
-    padding-top: 16px;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
     margin-bottom: 32px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.08);
 }
 
 .feature-card h2 {
     margin-bottom: 10px;
+    color: var(--TEXT);
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: var(--TEXT-MUTED);
+    text-align: center;
 }
 
 @media (max-width:480px) {
     .feature-card {
         height: 150px;
         width: 160px;
-        border-radius: 12px;
-        box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.12);
-        border: none;
-        outline: none;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        border-radius: 20px;
+        box-shadow: var(--CARD-SHADOW);
+        border: 1px solid var(--CARD-BORDER);
+        background: var(--CARD-BG);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
         padding: 12px;
     }
 
     .feature-icon {
-        font-size: 16px;
-        background-color: #d5e0f8;
-        color: blue;
-        height: 40px;
-        width: 40px;
-        padding-top: 10px;
-        border-radius: 50%;
-        margin-bottom: 1px;
+        font-size: 20px;
+        height: 44px;
+        width: 44px;
+        margin-bottom: 12px;
     }
 
     .feature-card h2 {
         margin-bottom: 6px;
-        font-size: 12px
+        font-size: 14px;
     }
 
-    .feature-card p{
-        font-size: 8px;
+    .feature-card p {
+        font-size: 10px;
     }
 }
-

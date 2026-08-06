@@ -1,156 +1,195 @@
+.contact-container {
+    align-items: stretch;
+}
+
+.upInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .contact-info {
-    width: 90%;
-    height: 350px;
-    background: #fff;
-    padding: 10px 20px;
-    top: 80px;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+    padding: 34px 28px;
+    box-sizing: border-box;
 }
 
 .contact-info h2 {
     font-size: 28px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    color: #fff;
+    font-weight: 700;
 }
 
 .contact-info p {
     font-size: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, .82);
+    line-height: 1.85;
 }
 
 .info-card {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 12px 24px;
+    margin-bottom: 18px;
+    min-height: 96px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:last-of-type {
+    margin-bottom: 0;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    border-color: #2992ff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
 }
 
 .info-icon {
-    font-size: 12px;
-    color: #0d6efd;
-    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #2992ff;
+    font-size: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+    background: rgba(41, 146, 255, .16);
+    border-color: #2992ff;
+    color: #fff;
 }
 
 .info-card h4 {
-    font-size: 12px;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #fff;
+    font-weight: 700;
 }
 
 .info-card p {
-    color: #666;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, .82);
+    line-height: 1;
+    font-size: 13px;
+    margin: 0;
 }
 
 .socialInfo {
-    border-top: 1px solid black;
-    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    padding-top: 18px;
+    margin-top: 16px;
+}
 
+.socialInfo h3 {
+    color: #fff;
+    margin-bottom: 14px;
+    font-weight: 700;
 }
 
 .socialicons {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    gap: 12px;
-    padding-top: 12px;
-
-
+    gap: 14px;
+    padding-top: 6px;
 }
 
 .socialicons a {
-    display: block;
-    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    color: black;
+    color: #2992ff;
     font-size: 18px;
-    background-color: rgb(247, 247, 247);
-    padding: 12px;
-    padding-bottom: 6px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .12);
     border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .socialicons a:hover {
-    background-color: var(--BLUE);
-    color: white;
+    background-color: #2992ff;
+    color: #fff;
     cursor: pointer;
     transform: translateY(-4px);
-    transition: 0.3s;
 }
 
 @media (max-width:480px) {
     .contact-info {
         width: 100%;
-        height: 90vh;
-        background: #fff;
-        padding: 6px 12px;
-        top: 80px;
+        height: auto;
+        background: rgba(17, 25, 40, 0.55);
+        padding: 18px 16px;
+        border-radius: 18px;
     }
 
     .contact-info h2 {
         font-size: 18px;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
     }
 
     .contact-info p {
-        font-size: 10px;
-        margin-bottom: 12px;
+        font-size: 11px;
+        margin-bottom: 14px;
     }
 
     .info-card {
-        display: flex;
         align-items: flex-start;
-        gap: 6px;
+        gap: 12px;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        min-height: 0;
+        border-radius: 18px;
     }
 
     .info-icon {
-        font-size: 16px;
-        color: var(--BLUE);
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
     }
 
     .info-card h4 {
-        margin-bottom: 6px;
-        font-size: .8rem;
+        font-size: .7rem;
     }
 
     .info-card p {
-        color: #666;
-        line-height: 1.6;
-        font-size: .6rem;
+        font-size: .70rem;
     }
 
     .socialInfo {
-        margin-top: -340px;
-        border-top: 1px solid black;
-        padding-top: 8px;
-    }
-
-    .socialInfo h3 {
-        font-size: 16px;
-    }
-
-    .socialicons {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 12px;
-        padding-top: 6px;
-
-
+        margin-top: 0;
+        padding-top: 14px;
     }
 
     .socialicons a {
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        color: black;
-        font-size: 20px;
-        background-color: rgb(247, 247, 247);
-        padding: 14px 18px;
-        padding-bottom: 10px;
-        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
     }
 
     .socialicons a:hover {
-        background-color: var(--BLUE);
-        color: white;
-        cursor: pointer;
         transform: translateY(-2px);
-        transition: 0.3s;
     }
 }

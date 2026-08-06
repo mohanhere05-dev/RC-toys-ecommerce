@@ -114,47 +114,20 @@ const MyOrders = () => {
                                     </div>
 
                                     {
-
                                         order.orderItems.map((item) => (
-
-                                            <div
-                                                key={item._id}
-                                                className="order-item"
-                                            >
-
+                                            <div key={item._id} className="order-item">
+                                                {/* item.product iruntha mattum image and name kaatu */}
                                                 <img
-                                                    src={item.product.image}
-                                                    alt={item.product.name}
+                                                    src={item.product?.image || "default-placeholder.png"}
+                                                    alt={item.product?.name || "Product"}
                                                 />
-
                                                 <div>
-
-                                                    <h4>
-
-                                                        {item.product.name}
-
-                                                    </h4>
-
-                                                    <p>
-
-                                                        Qty :
-
-                                                        {item.quantity}
-
-                                                    </p>
-
+                                                    <h4>{item.product?.name || "Product Unavailable"}</h4>
+                                                    <p>Qty : {item.quantity}</p>
                                                 </div>
-
-                                                <strong>
-
-                                                    ₹{item.price}
-
-                                                </strong>
-
+                                                <strong>₹{item.price}</strong>
                                             </div>
-
                                         ))
-
                                     }
 
                                     <div className="order-footer">

@@ -2,19 +2,38 @@
     --BLUE: #2992ff;
 }
 
+body {
+
+    background:
+        radial-gradient(circle at top left, #1e40af22 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #2992ff22 0%, transparent 30%),
+        linear-gradient(180deg,
+            #020617,
+            #0f172a,
+            #111827);
+
+    color: black;
+
+}
+
 .Product-Cards {
     position: relative;
     width: 320px;
     height: 440px;
-    background: white;
-    border-radius: 8px;
+    background: rgba(17, 25, 40, 0.55);
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
-    transition: .4s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.35s ease;
 }
 
 .Product-Cards:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(41, 146, 255, 0.20);
+    border-color: rgba(41, 146, 255, 0.35);
     cursor: pointer;
 }
 
@@ -60,9 +79,13 @@
     width: 100%;
     height: 100%;
     object-position: center;
-    object-fit: cover;   
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
+.Product-Cards:hover .product-image img {
+    transform: scale(1.05);
+}
 
 .product-content {
     padding: 20px;
@@ -73,45 +96,55 @@
     align-items: center;
 }
 
-.product-content h3{
-font-size: 16px;
+.product-content h3 {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .product-content h2 {
     font-size: 16px;
     color: var(--BLUE);
+    font-weight: 700;
 }
-
 
 .Product-Cards .cart-btn {
     margin: auto;
-    background-color: var(--BLUE);
+    width: 82%;
+    height: 62px;
+    background: rgba(255, 255, 255, 0.10);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     outline: none;
     margin-top: 18px;
-    padding: 12px 70px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 14px;
     color: white;
     font-size: 14px;
     font-weight: 500;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(20px);
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cart-btn svg {
     display: flex;
     color: white;
     font-size: 16px;
-
 }
 
-.Product-Cards button:hover {
-    background-color: var(--BLUE);
+.Product-Cards .cart-btn:hover {
+    background-color: #2992ff;
+    border-color: #2992ff;
     color: white;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgb(243, 241, 241);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(41, 146, 255, 0.25);
+}
+
+.Product-Cards .cart-btn:active {
+    transform: translateY(0px);
 }
 
 .wishlist-icon {
@@ -119,19 +152,25 @@ font-size: 16px;
     top: 20px;
     right: 20px;
     font-size: 28px;
-    color: white;
     cursor: pointer;
-    transition: .3s;
-    color: red;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 6px;
+    color: red;
     border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 999;
 }
 
 .wishlist-icon:hover {
-    color: red;
+    background-color: #2992ff;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(41, 146, 255, 0.24);
 }
-
 
 .wishlist-icon.active {
     color: red;
@@ -140,13 +179,16 @@ font-size: 16px;
 @media (max-width:480px) {
     .Product-Cards {
         position: relative;
-        width: 180px;
+        width: 160px;
         height: 240px;
-        background: white;
-        border-radius: 6px;
+        background: rgba(17, 25, 40, 0.55);
+        border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
-        transition: .4s;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: all 0.35s ease;
     }
 
 
@@ -184,17 +226,22 @@ font-size: 16px;
     }
 
     .product-image {
+        padding: 12px;
         width: 100%;
         height: 130px;
         overflow: hidden;
     }
 
     .product-image img {
+        border-radius: 6px;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        padding: 10px;
-        border-radius: 6px;
+        transition: transform 0.4s ease;
+    }
+
+    .Product-Cards:hover .product-image img {
+        transform: scale(1.05);
     }
 
     .product-content {
@@ -216,22 +263,28 @@ font-size: 16px;
     .product-content h3 {
         font-size: 10px;
         margin-bottom: 4px;
+        color: #ffffff;
+        font-weight: 600;
     }
 
     .Product-Cards .cart-btn {
         margin: auto;
-        background-color: var(--BLUE);
+        width: 82%;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.10);
         display: flex;
         justify-content: center;
         align-items: center;
-        border: none;
+        border: 1px solid rgba(255, 255, 255, 0.15);
         outline: none;
         margin-top: 8px;
-        padding: 8px 30px;
+        padding: 8px 20px;
         border-radius: 6px;
         color: white;
         font-size: 10px;
         font-weight: 500;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(20px);
     }
 
     .cart-btn svg {
@@ -240,36 +293,47 @@ font-size: 16px;
 
     }
 
-    .Product-Cards button:hover {
-        background-color: blue;
+    .Product-Cards .cart-btn:hover {
+        background-color: #2992ff;
+        border-color: #2992ff;
         color: white;
-        transition: 0.3s ease-in-out;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgb(243, 241, 241);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(41, 146, 255, 0.25);
+    }
+
+    .Product-Cards .cart-btn:active {
+        transform: translateY(0px);
     }
 
     .wishlist-icon {
-        background-color: white;
         position: absolute;
-        top: 6px;
-        right: 6px;
-        font-size: 12px;
+        top: 16px;
+        right: 16px;
+        font-size: 16px;
+        line-height: 1;
+        display: block;
+        width: 1.4em;
+        height: 1.3em;
         cursor: pointer;
-        transition: .3s;
-        color: red;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(20px);
         z-index: 999;
     }
 
     .wishlist-icon:hover {
-        color: red;
+        background-color: #2992ff;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(41, 146, 255, 0.24);
     }
 
-
     .wishlist-icon.active {
-
         color: red;
-
     }
 
 }
-

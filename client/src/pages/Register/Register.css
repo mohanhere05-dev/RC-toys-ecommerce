@@ -8,46 +8,78 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    background: #07111f;
+}
+
 .register-page {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 60px clamp(20px, 4vw, 40px);
     background:
-        radial-gradient(circle at top right, #dcecff 0%, transparent 30%),
-        radial-gradient(circle at bottom left, #eef5ff 0%, transparent 30%),
-        #f8fbff;
+        radial-gradient(circle at top left, rgba(41, 146, 255, 0.24) 0%, transparent 38%),
+        radial-gradient(circle at bottom right, rgba(69, 123, 255, 0.18) 0%, transparent 35%),
+        linear-gradient(135deg, #07111f 0%, #0e1a2c 45%, #101d31 100%);
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    opacity: 0;
+    transform: translateY(20px) scale(.97);
+    animation: registerOpen .4s ease forwards;
+}
+
+@keyframes registerOpen {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .register-card {
     width: 100%;
-    max-width: 480px;
-    background: rgba(255, 255, 255, .95);
-    backdrop-filter: blur(15px);
-    border-radius: 22px;
-    padding: 45px;
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, .08);
+    max-width: 460px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    padding: clamp(32px, 4vw, 45px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .30);
+    animation: fadeInUp .4s ease both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .register-logo {
-    width: 180px;
+    width: 60px;
+    height: 60px;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 12px;
 }
 
 .register-card h1 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 8px;
-    color: #1b1b1b;
+    color: #fff;
 }
 
 .register-card>p {
     text-align: center;
-    color: #666;
-    margin-bottom: 35px;
+    color: rgba(255, 255, 255, .75);
+    margin-bottom: 30px;
 }
 
 .register-card label {
@@ -55,7 +87,7 @@
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #222;
+    color: rgba(255, 255, 255, .92);
 }
 
 .password-header {
@@ -67,23 +99,36 @@
 
 .password-header a {
     text-decoration: none;
-    color: #0d6efd;
+    color: rgba(255, 255, 255, .80);
     font-size: 14px;
+    transition: color .3s ease;
+}
+
+.password-header a:hover {
+    color: #2992ff;
 }
 
 .input-box {
     display: flex;
     align-items: center;
     gap: 12px;
-    border: 1px solid #d9d9d9;
-    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
     padding: 15px;
-    transition: .3s;
+    background: rgba(255, 255, 255, .08);
+    transition: .3s ease;
     margin-bottom: 15px;
 }
 
 .input-box:hover {
-    border-color: #0d6efd;
+    border-color: rgba(255, 255, 255, .22);
+    background: rgba(255, 255, 255, .12);
+}
+
+.input-box:focus-within {
+    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, .35);
+    background: rgba(255, 255, 255, .12);
 }
 
 input:focus {
@@ -100,6 +145,11 @@ input:focus-visible {
     outline: none;
     font-size: 15px;
     background: transparent;
+    color: #fff;
+}
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, .60);
 }
 
 .input-box input:focus {
@@ -108,8 +158,13 @@ input:focus-visible {
 }
 
 .input-box svg {
-    color: #777;
+    color: rgba(255, 255, 255, .70);
     font-size: 18px;
+    transition: color .3s ease;
+}
+
+.input-box:focus-within svg {
+    color: #2992ff;
 }
 
 .eye-icon {
@@ -120,9 +175,9 @@ input:focus-visible {
     width: 100%;
     margin-top: 25px;
     padding: 16px;
-    border: none;
-    border-radius: 12px;
-    background: #0d6efd;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .08);
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -131,12 +186,16 @@ input:focus-visible {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    transition: .3s;
+    transition: .3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .register-btn:hover {
-    background: #0056d6;
-    transform: translateY(-3px);
+    background: #2992ff;
+    border-color: #2992ff;
+    box-shadow: 0 0 20px rgba(41, 146, 255, .35);
+    transform: translateY(-2px);
 }
 
 .divider {
@@ -151,106 +210,85 @@ input:focus-visible {
     content: "";
     flex: 1;
     height: 1px;
-    background: #ddd;
+    background: rgba(255, 255, 255, .16);
 }
 
 .divider span {
     font-size: 13px;
-    color: #777;
+    color: rgba(255, 255, 255, .65);
 }
 
-
-.login-link {
+.loginlink {
+    background-color: none;
     text-align: center;
+    font-weight: 500;
+    font-size: 16px;
     margin-top: 30px;
-    color: #666;
+    color: rgba(255, 255, 255, .80);
 }
 
-.login-link a {
-    color: #0d6efd;
+.loginlink a {
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     margin-left: 5px;
+    transition: color .3s ease;
 }
 
-.login-link a:hover {
-    text-decoration: underline;
+.loginlink a:hover{
+    color: #2992ff;
 }
 
-@media(max-width:768px) {
-
-    .register-card {
-
-        padding: 30px 25px;
-
-    }
-
-    .register-logo {
-
-        width: 150px;
-
-    }
-
-    .register-card h1 {
-
-        font-size: 1.8rem;
-
-    }
-
-}
 
 .brand-logo {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 12px;
-
     font-size: 34px;
-
-    color: #0d6efd;
-
+    color: #2992ff;
     margin-bottom: 20px;
-
 }
 
 .brand-logo span {
-
     font-size: 32px;
-
     font-weight: 700;
-
-    color: #222;
-
+    color: #fff;
 }
 
 .register-logo-wrapper {
-
     display: flex;
-
     justify-content: center;
-
-    margin-bottom: 12px;
-
+    margin-bottom: 8px;
 }
 
 .register-logo {
-
-    width: 75px;
-
-    height: 75px;
-
+    width: 60px;
+    height: 60px;
     object-fit: contain;
+}
 
+@media(max-width:768px) {
+    .register-page {
+        padding: 24px;
+    }
+
+    .register-card {
+        padding: 30px 25px;
+    }
+
+    .register-logo {
+        width: 150px;
+    }
+
+    .register-card h1 {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width:480px) {
-
     .register-page {
-        padding: 20px;
+        padding: 24px 16px;
         align-items: center;
     }
 
@@ -333,5 +371,4 @@ input:focus-visible {
         margin-top: 20px;
         font-size: 13px;
     }
-
 }
