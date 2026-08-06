@@ -81,7 +81,7 @@
     border-radius: 50%;
 }
 
-..team-skeleton-card::after,
+.team-skeleton-card::after,
 .skeleton-avatar::after,
 .skeleton-line::after,
 .skeleton-social::after {
