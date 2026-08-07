@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Navbar from "../../components/Navbar";
 import "./OrderDetails.css";
+import Loading from "../../components/Loading";
 
 const OrderDetails = () => {
 
@@ -57,7 +58,7 @@ const OrderDetails = () => {
 
     if (!order) {
 
-        return <h2 className="loading">Loading...</h2>;
+        return <h2 className="loading"><Loading /></h2>;
 
     }
 

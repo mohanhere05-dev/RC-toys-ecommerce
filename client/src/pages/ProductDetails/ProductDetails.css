@@ -277,16 +277,11 @@
 
 .related-products h2 {
     margin-bottom: 30px;
-    color: #222;
+    color: #fff;
 }
 
 .related-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 25px;
+    display: flex;
+    gap: 34px;
 
 }

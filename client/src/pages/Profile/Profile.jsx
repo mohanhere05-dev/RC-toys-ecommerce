@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import logo from "../../../public/images/logo.png";
 import "./Profile.css";
 import ChangePasswordModal from "../../components/ChangePasswordModel/ChangePasswordModal";
+import Loading from "../../components/Loading";
 
 const Profile = () => {
 
@@ -56,7 +57,7 @@ const Profile = () => {
 
     if (!user) {
 
-        return <h2>Loading...</h2>;
+        return <Loading />;
 
     }
 
