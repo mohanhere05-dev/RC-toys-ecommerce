@@ -80,71 +80,73 @@ const Products = () => {
 
     };
 
-   const handleSaveProduct = async () => {
-    try {
-        const token = localStorage.getItem("token");
+    const handleSaveProduct = async () => {
+        try {
+            const token = localStorage.getItem("token");
 
-        const data = new FormData();
-        data.append("name", formData.name);
-        data.append("price", formData.price);
-        data.append("category", formData.category);
-        data.append("description", formData.description);
-        data.append("stock", formData.stock);
-        
-        // 🛠️ FIX: File iruntha mattum 'image' key-ah append pannu
-        if (formData.image) {
-            data.append("image", formData.image);
-        }
+            const data = new FormData();
+            data.append("name", formData.name);
+            data.append("price", formData.price);
+            data.append("category", formData.category);
+            data.append("description", formData.description);
+            data.append("stock", formData.stock);
 
-        if (isEdit) {
-            await axios.put(
-                `${import.meta.env.VITE_API_URL}/api/products/${editingId}`,
-                data,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
+            // 🛠️ FIX: File iruntha mattum 'image' key-ah append pannu
+            if (formData.image instanceof File) {
+                data.append("image", formData.image);
+            }
+
+            if (isEdit) {
+                const { data: updatedProduct } = await axios.put(
+                    `${import.meta.env.VITE_API_URL}/api/products/${editingId}`,
+                    data,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "multipart/form-data",
+                        },
+                    }
+                );
+
+                setProducts(products.map((p) => (p._id === editingId ? updatedProduct : p)));
+                toast.success("Product Updated Successfully");
+
+            } else {
+                const { data: newProduct } = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/api/products`,
+                    data,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "multipart/form-data",
+                        },
+                    }
+                );
+
+                setProducts([...products, newProduct]);
+                toast.success("Product Added Successfully");
+            }
+
+            setShowModal(false);
+
+            setFormData({
+                name: "",
+                price: "",
+                image: null,
+                category: "",
+                description: "",
+                stock: "",
+            });
+
+            await getProducts();
+
+        } catch (error) {
+            toast.error(
+                error.response?.data?.message ||
+                "Failed to Add Product"
             );
-
-            toast.success("Product Updated Successfully");
-
-        } else {
-            await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/products`,
-                data,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
-
-            toast.success("Product Added Successfully");
         }
-
-        setShowModal(false);
-
-        setFormData({
-            name: "",
-            price: "",
-            image: null,
-            category: "",
-            description: "",
-            stock: "",
-        });
-
-        getProducts();
-
-    } catch (error) {
-        toast.error(
-            error.response?.data?.message ||
-            "Failed to Add Product"
-        );
-    }
-};
+    };
 
     const handleEdit = (product) => {
 

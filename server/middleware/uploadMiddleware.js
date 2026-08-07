@@ -1,19 +1,23 @@
-import { v2 as cloudinary } from 'cloudinary';
-import { CloudinaryStorage } from 'multer-storage-cloudinary';
-import multer from 'multer';
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import multer from "multer";
+import dotenv from "dotenv";
 
-// Cloudinary config (Ithula unga credentials-ah podunga or .env la store pannikonga)
+dotenv.config();
+
+// Configure Cloudinary
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// Configure Storage
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: 'rc-toys-uploads', // Unga cloudinary la intha folder la image save agum
-        allowed_formats: ['jpg', 'png', 'jpeg', 'webp'],
+        folder: "turbotoys_products", // Cloudinary-la intha folder-la save aagum
+        allowed_formats: ["jpg", "png", "jpeg", "webp"],
     },
 });
 

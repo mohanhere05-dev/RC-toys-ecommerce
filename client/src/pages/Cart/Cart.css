@@ -2,9 +2,20 @@
     --BLUE: #2992ff;
 }
 
+body{
+    background:
+        radial-gradient(circle at top left, #1e40af22 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #2992ff22 0%, transparent 30%),
+        linear-gradient(180deg,
+            #020617,
+            #0f172a,
+            #111827);
+}
+
 .cart-page {
     width: 90%;
     margin: 40px auto;
+
 }
 
 .cart-page h1 {

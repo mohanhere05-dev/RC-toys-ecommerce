@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -14,10 +13,6 @@ import ProductSkeleton from '../../components/Products/ProductSkeleton'
 import { MdClear } from "react-icons/md";
 import { RiCloseFill } from "react-icons/ri";
 import { LuFilter } from "react-icons/lu";
-import driftCar from "../../../public/images/driftedCar.webp";
-import offRoad from "../../../public/images/off-road.webp";
-import racingCar from "../../../public/images/onRoadCar.webp";
-import monsterTruck from "../../../public/images/MonsterTruck.webp";
 
 import { IoMdSearch } from "react-icons/io";
 
@@ -31,6 +26,8 @@ const Products = () => {
     const [sortBy, setSortBy] = useState("Newest");
     const [loading, setLoading] = useState(true);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 6; // Oru page-ku evlo products venumo antha count
 
     const filteredProducts = products.filter((product) => {
         const matchesSearch =
@@ -43,7 +40,6 @@ const Products = () => {
 
         const matchesPrice = product.price <= maxPrice;
         return matchesSearch && matchesCategory && matchesPrice;
-
     });
 
     const sortedProducts = [...filteredProducts];
@@ -59,6 +55,18 @@ const Products = () => {
     if (sortBy === "HighestRated") {
         sortedProducts.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     }
+
+    // 🔄 Search or Filter change aana page-ah 1-ku reset panrathu
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, selectedCategories, maxPrice, sortBy]);
+
+    // 📄 Pagination Calculations
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+    const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+
     const handleCategoryChange = (category) => {
         if (selectedCategories.includes(category)) {
             setSelectedCategories(
@@ -71,9 +79,7 @@ const Products = () => {
                 ...selectedCategories,
                 category,
             ]);
-
         }
-
     };
 
     useEffect(() => {
@@ -94,7 +100,7 @@ const Products = () => {
             <Navbar />
 
             <section className="products-page">
-                <motion.div className="products-heading" className="products-heading"
+                <motion.div className="products-heading"
                     initial={{ opacity: 0, y: -40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -102,7 +108,7 @@ const Products = () => {
                     <h1>Our Collection</h1>
                 </motion.div>
 
-                <motion.div className="search-bar" className="search-bar"
+                <motion.div className="search-bar"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -121,9 +127,6 @@ const Products = () => {
                             onClick={() => setSearchTerm("")}
                         />
                     )}
-
-
-
                 </motion.div>
 
                 <motion.div className="products-topbar" initial={{ opacity: 0, y: 40 }}
@@ -140,23 +143,12 @@ const Products = () => {
                     <select className="sortby"
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}>
-
                         <option value="Newest">Newest</option>
-
-                        <option value="LowToHigh">
-                            Price: Low to High
-                        </option>
-
-                        <option value="HighToLow">
-                            Price: High to Low
-                        </option>
-
-                        <option value="HighestRated">
-                            Highest Rated
-                        </option>
+                        <option value="LowToHigh">Price: Low to High</option>
+                        <option value="HighToLow">Price: High to Low</option>
+                        <option value="HighestRated">Highest Rated</option>
                     </select>
                 </motion.div>
-
 
                 <div className="products-layout">
                     {/* SideBars */}
@@ -199,7 +191,7 @@ const Products = () => {
                                     checked={selectedCategories.includes("Racing")}
                                     onChange={() => handleCategoryChange("Racing")}
                                 />
-                                Racing Cars
+                                Racing Car
                             </label>
 
                             <label>
@@ -221,43 +213,24 @@ const Products = () => {
                                 value={maxPrice}
                                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                             />
-
                             <p>₹0 - ₹{maxPrice}</p>
                         </div>
 
                         <div className="filter-section">
-
                             <h3>Brand</h3>
-
-                            <label>
-                                <input type="checkbox" />
-                                Traxxas
-                            </label>
-
-                            <label>
-                                <input type="checkbox" />
-                                Arrma
-                            </label>
-
-                            <label>
-                                <input type="checkbox" />
-                                Tamiya
-                            </label>
-
-                            <label>
-                                <input type="checkbox" />
-                                Redcat
-                            </label>
-
+                            <label><input type="checkbox" /> Traxxas</label>
+                            <label><input type="checkbox" /> Arrma</label>
+                            <label><input type="checkbox" /> Tamiya</label>
+                            <label><input type="checkbox" /> Redcat</label>
                         </div>
                     </motion.aside>
-                    {/* <ProductGrid /> */}
-                    <div className="products-grid">
 
+                    {/* Products Grid */}
+                    <div className="products-grid">
                         {loading ? (
-                            <ProductSkeleton count={4} />
-                        ) : sortedProducts.length > 0 ? (
-                            sortedProducts.map((product) => (
+                            <ProductSkeleton count={6} />
+                        ) : currentProducts.length > 0 ? (
+                            currentProducts.map((product) => (
                                 <ProductCard
                                     key={product._id}
                                     id={product._id}
@@ -278,16 +251,21 @@ const Products = () => {
                                 </p>
                             </div>
                         )}
-
                     </div>
                 </div>
 
+                {/* Pagination Component */}
                 <motion.section className='pagination-container' initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}>
                     <Stack spacing={2} alignItems="center">
-                        <Pagination count={10} color="primary" />
+                        <Pagination
+                            count={totalPages || 1}
+                            page={currentPage}
+                            onChange={(event, value) => setCurrentPage(value)}
+                            color="primary"
+                        />
                     </Stack>
                 </motion.section>
 
@@ -300,11 +278,8 @@ const Products = () => {
                 ></div>
             )}
             <Footer />
-
-
         </>
     )
-
 }
 
-export default Products
+export default Products;

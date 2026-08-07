@@ -13,6 +13,15 @@
     margin: 100px auto;
     padding-top: 36px;
     padding-bottom: 270px;
+    background:
+        radial-gradient(circle at top left, #1e40af22 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #2992ff22 0%, transparent 30%),
+        linear-gradient(180deg,
+            #020617,
+            #0f172a,
+            #111827);
+
+    color: black
 }
 
 .wishlist-page h1 {

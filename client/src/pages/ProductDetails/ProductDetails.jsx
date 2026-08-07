@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import "./ProductDetails.css";
 import ProductCard from '../../components/Products/ProductCard'
 import Navbar from '../../components/Navbar'
+import Loading from "../../components/Loading"; // Unga path-ku etha mathiri
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -54,7 +55,7 @@ const ProductDetails = () => {
   if (!product) {
     return (
       <div className="loading">
-        <h2>Loading...</h2>
+        <Loading />
       </div>
     );
   }

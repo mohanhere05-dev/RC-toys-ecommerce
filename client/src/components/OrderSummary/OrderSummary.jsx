@@ -19,9 +19,11 @@ const OrderSummary = () => {
 
     );
 
-    const shipping = subtotal > 0 ? 0 : 0;
+    const gst = (subtotal * 15) / 100;
 
-    const total = subtotal + shipping;
+    const shipping = 0; 
+
+    const total = subtotal + gst + shipping;
 
     return (
 

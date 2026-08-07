@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
@@ -25,42 +25,57 @@ import AdminProducts from "./Admin/layout/Pages/Products/AdminProducts";
 import Orders from './Admin/layout/Pages/Orders/Orders';
 import Users from './Admin/layout/Pages/Users/Users';
 
+// 🔒 Protected Wrapper: Login pannala na login page-ku anuppum, with state
+const ProtectedRoute = ({ children }) => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const location = useLocation();
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  return children;
+};
 
 function App() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login />} />
-          <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/verify-otp" element={<VerifyOTP />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/" element={isLoggedIn ? <Home /> : <Navigate to="/login" />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/:id' element={<ProductDetails />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/my-orders" element={<MyOrders />} />
-          <Route path="/orders/:id" element={<OrderDetails />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/order-success" element={<OrderSuccess />} />
 
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path='dashboard' element={<Dashboard />} />
-            <Route path="products" element={<AdminProducts />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="/admin/users" element={<Users />} />
-          </Route>
-        </Routes>
-      </Router>
-    </>
-  )
+  return (
+    <Router>
+      <Routes>
+        {/* Auth Routes */}
+        <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login />} />
+        <Route path="/register" element={isLoggedIn ? <Navigate to="/" /> : <Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOTP />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        {/* 🌍 PUBLIC LANDING / HOME PAGE (Yar venalum login illamalum paarkalam) */}
+        <Route path="/" element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+
+        {/* 🔒 PROTECTED E-COMMERCE PAGES (Click panna login kekum!) */}
+        <Route path='/products' element={<ProtectedRoute><Products /></ProtectedRoute>} />
+        <Route path='/products/:id' element={<ProtectedRoute><ProductDetails /></ProtectedRoute>} />
+        <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+        <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/my-orders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
+        <Route path="/orders/:id" element={<ProtectedRoute><OrderDetails /></ProtectedRoute>} />
+        <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+        <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+        <Route path="/order-success" element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>} />
+
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="users" element={<Users />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

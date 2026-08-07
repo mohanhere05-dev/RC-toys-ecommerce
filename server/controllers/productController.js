@@ -85,41 +85,37 @@ export const getProductById = async (req, res) => {
 
 // UPDATE Product
 export const updateProduct = async (req, res) => {
-
     try {
+        // Prepare the update fields object
+        const updateData = {
+            name: req.body.name,
+            price: req.body.price,
+            category: req.body.category,
+            description: req.body.description,
+            stock: req.body.stock,
+        };
 
-        const product = await Product.findByIdAndUpdate(
-
-            req.params.id,
-
-            req.body,
-
-            {
-                new: true,
-            }
-
-        );
-
-        if (!product) {
-
-            return res.status(404).json({
-                message: "Product not found",
-            });
-
+        // File vantha mattum image path-ah add pannu
+        if (req.file) {
+            updateData.image = req.file.path;
         }
 
-        res.status(200).json(product);
+        // findByIdAndUpdate use panni update panrom & { new: true } potta pudhu data kidaikum
+        const updatedProduct = await Product.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true, runValidators: true }
+        );
 
+        if (!updatedProduct) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        res.status(200).json(updatedProduct);
     } catch (error) {
-
-        res.status(500).json({
-            message: error.message,
-        });
-
+        res.status(500).json({ message: error.message });
     }
-
 };
-
 // DELETE Product
 export const deleteProduct = async (req, res) => {
 
