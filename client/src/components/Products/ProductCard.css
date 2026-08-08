@@ -179,7 +179,6 @@ body {
 @media (max-width:480px) {
     .Product-Cards {
         position: relative;
-        left: -30px;
         width: 180px;
         height: 230px;
         background: rgba(17, 25, 40, 0.55);
@@ -205,6 +204,8 @@ body {
         font-weight: 600;
         z-index: 10;
     }
+    
+    
 
     .rating {
         display: flex;
@@ -337,5 +338,7 @@ body {
     .wishlist-icon.active {
         color: red;
     }
+
+    
 
 }

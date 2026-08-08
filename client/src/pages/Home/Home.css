@@ -257,7 +257,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 16px;
+        font-size: 24px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding-top: 59px;
     }
@@ -265,7 +265,7 @@
     .underline {
         content: "";
         height: 4px;
-        width: 75px;
+        width: 125px;
         background-color: var(--BLUE);
         border-radius: 6px;
         margin-top: 10px;
@@ -273,7 +273,7 @@
 
     .category-container {
         position: relative;
-        left: -50px;
+        left: -12px;
         width: 100%;
         padding: 20px 80px;
         display: grid;

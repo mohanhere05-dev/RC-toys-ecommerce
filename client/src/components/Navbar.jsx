@@ -153,7 +153,12 @@ const Navbar = () => {
                     <Link to="/wishlist" className="icon-btn">
                         <FaHeart className="wishlist-nav-icon" />
                     </Link>
-                    <Link className='cart-icon icon-btn' to="/cart" onClick={() => setMenuOpen(false)}> <IoCartOutline /> </Link>
+                    <Link className='cart-icon icon-btn cart-wrapper' to="/cart" onClick={() => setMenuOpen(false)}> <IoCartOutline />
+                        {totalItems > 0 && (
+                            <span className="cart-badge">
+                                {totalItems}
+                            </span>
+                        )} </Link>
                     <div className="menu-icon-button"><GiHamburgerMenu /></div></div>
 
                 {menuOpen && (

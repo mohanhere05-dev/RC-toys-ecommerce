@@ -95,7 +95,7 @@ const Product = ({ id, image, name, price, category, description, stock }) => {
                 </div>
 
                 <button className='cart-btn'>
-                    <span><MdAddShoppingCart /></span> &nbsp; Add to cart
+                    View Details
                 </button>
             </motion.div>
         </>
