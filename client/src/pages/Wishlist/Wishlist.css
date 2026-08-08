@@ -107,12 +107,12 @@
     }
 
     .wishlist-page h1 {
-        font-size: 12px;
+        text-align: center;
+        font-size: 18px;
         margin-bottom: 20px;
     }
 
     .wishlist-item {
-
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -177,15 +177,15 @@
 
     .empty-wishlist a {
         text-decoration: underline;
-        color: black;
+        color: var(--BLUE);
         font-weight: 500;
     }
 
     .empty-wishlist svg {
         margin: auto;
         position: absolute;
-        top: 288px;
-        left: 302px;
+        top: 296px;
+        left: 280px;
     }
 
     .empty-wishlist svg:hover {

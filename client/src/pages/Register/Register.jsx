@@ -23,7 +23,7 @@ const Register = () => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [phone, setPhone] = useState(0);
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -130,6 +130,8 @@ const Register = () => {
                             placeholder="Enter your name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
+
                         />
                     </div>
 
@@ -142,6 +144,8 @@ const Register = () => {
                             placeholder="name@example.com"
                             value={email}
                             onChange={(e) => { setEmail(e.target.value) }}
+                            required
+
                         />
                     </div>
 
@@ -154,6 +158,7 @@ const Register = () => {
                             placeholder="+91 xxxxxxxxx0"
                             value={phone}
                             onChange={(e) => { setPhone(e.target.value) }}
+                            required
                         />
                     </div>
 
@@ -167,6 +172,7 @@ const Register = () => {
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter password"
                             value={password}
+                            required
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
@@ -195,6 +201,7 @@ const Register = () => {
                             type={showConfirmPassword ? "text" : "password"}
                             placeholder="Confirm password"
                             value={confirmPassword}
+                            required
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
 

@@ -149,14 +149,15 @@
 
 @media (max-width: 480px) {
     .product-skeleton-card {
-        width: 100%;
-        min-height: 360px;
+        width: 180px;
+        height: 230px;
         padding: 18px;
-        gap: 14px;
+        gap: 8px;
     }
 
     .skeleton-image {
-        min-height: 180px;
+        width: 100%;
+        min-height: 80px;
     }
 
     .skeleton-badge {

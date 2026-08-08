@@ -108,13 +108,13 @@ export const registerUser = async (req, res) => {
             "🎉 Welcome to TurboToys",
             `Hello ${user.name},
 
-Welcome to TurboToys!
+            Welcome to TurboToys!
 
-Your account has been created successfully.
+            Your account has been created successfully.
 
-Happy Shopping 🚗
+            Happy Shopping 🚗
 
-TurboToys Team`
+            TurboToys Team`
         ).catch((err) => console.error("Welcome Email Error:", err));
 
         res.status(201).json({
@@ -182,15 +182,22 @@ TurboToys Team`
 // ===============================
 // Forgot Password
 // ===============================
+
 export const forgotPassword = async (req, res) => {
     try {
-        const { email } = req.body;
+        const email = req.body.email ? req.body.email.toLowerCase().trim() : "";
+
+        if (!email.endsWith("@gmail.com")) {
+            return res.status(400).json({
+                message: "Only Gmail addresses are accepted!",
+            });
+        }
 
         const user = await User.findOne({ email });
 
         if (!user) {
             return res.status(404).json({
-                message: "User not found",
+                message: "User not found with this email",
             });
         }
 
@@ -201,24 +208,33 @@ export const forgotPassword = async (req, res) => {
 
         await user.save();
 
-        await sendEmail(
-            user.email,
-            "TurboToys Password Reset OTP",
-            `Your OTP is ${otp}. It is valid for 5 minutes.`
-        );
+        // 🔥 1. First, terminal-la testing-ku print panna idhula podrom
+        console.log("TESTING OTP FOR " + email + " IS: " + otp);
+
+        // 2. Try sending email
+        try {
+            await sendEmail(
+                user.email,
+                "TurboToys Password Reset OTP",
+                `Your OTP is ${otp}. It is valid for 5 minutes.`
+            );
+        } catch (mailError) {
+            console.error("Nodemailer Error:", mailError);
+            // Email fail aanalum, testing-ku OTP already terminal-la print aagirukum 
+            // (Illa ungalukku thevaiyendra response anuppikalam)
+        }
 
         res.status(200).json({
             message: "OTP sent successfully",
         });
-    } catch (error) {
-        console.error(error);
 
+    } catch (error) {
+        console.error("Forgot Password Error:", error);
         res.status(500).json({
             message: error.message,
         });
     }
 };
-
 // ===============================
 // Verify OTP
 // ===============================

@@ -15,18 +15,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, .35);
+    background:
+        radial-gradient(circle at top left, #1e40af22 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #2992ff22 0%, transparent 30%),
+        linear-gradient(180deg,
+            #020617,
+            #0f172a,
+            #111827);
     z-index: 999;
 }
 
 .verify-card {
     width: 100%;
     max-width: 480px;
-    background: rgba(255, 255, 255, .95);
-    backdrop-filter: blur(15px);
-    border-radius: 22px;
-    padding: 45px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    padding: clamp(32px, 4vw, 45px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .30);
+    animation: fadeInUp .4s ease both;
 }
 
 .verify-logo-wrapper {

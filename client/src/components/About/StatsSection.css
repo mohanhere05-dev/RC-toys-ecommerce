@@ -76,7 +76,7 @@
     }
 
     .stat-card {
-        width: 130px;
+        width: 120px;
         height: 130px;
         background: rgba(17, 25, 40, 0.55);
         padding: 12px;
@@ -102,9 +102,9 @@
     }
 
     .stat-card p {
-        color: #666;
+        color: #fff;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 8px;
+        font-size: 6px;
     }
 }

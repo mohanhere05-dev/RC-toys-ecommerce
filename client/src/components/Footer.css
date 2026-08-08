@@ -183,19 +183,19 @@
     }
 
     .logo-section img {
-        width: 28px;
+        width: 38px;
     }
 
     .logo-section h1 {
-        font-size: 16px;
+        font-size: 26px;
     }
 
     .logo-description {
-        width: 250px;
+        width: 320px;
     }
 
     .logo-description p {
-        font-size: 10px;
+        font-size: 12px;
         color: rgb(219, 216, 216);
         padding-bottom: 12px;
     }
@@ -240,12 +240,17 @@
         transform: scale(0.96);
     }
 
+    .social-icons svg{
+        position: relative;
+        top: -1px;
+    }
+
     .footer-Navigation {
         margin-top: 18px;
     }
 
     .footer-Navigation h3 {
-        font-size: 10px;
+        font-size: 16px;
         margin-bottom: 4px;
     }
 
@@ -258,7 +263,7 @@
     }
 
     .footer-Navigation a {
-        font-size: 8px;
+        font-size: 12px;
         color: rgb(219, 216, 216);
         text-decoration: none;
     }
@@ -273,7 +278,7 @@
     }
 
     .footer-support h3 {
-        font-size: 10px;
+        font-size: 16px;
         margin-bottom: 4px;
     }
 
@@ -285,7 +290,7 @@
     }
 
     .footer-supportlinks a {
-        font-size: 8px;
+        font-size: 12px;
         text-decoration: none;
         color: rgb(219, 216, 216);
 
@@ -301,7 +306,7 @@
     }
 
     .footer-contact h3 {
-        font-size: 10px;
+        font-size: 16px;
         margin-bottom: 4px;
     }
 
@@ -324,7 +329,7 @@
         align-items: center;
         justify-content: start;
         gap: 4px;
-        font-size: 8px;
+        font-size: 12px;
         text-decoration: none;
         color: rgb(219, 216, 216);
 
@@ -341,6 +346,6 @@
         align-items: center;
         padding: 20px 20px;
         box-shadow: 0 2px 4px #959595;
-        font-size: 8px;
+        font-size: 9px;
     }
 }

@@ -269,19 +269,36 @@
         height: 40px;
     }
 
-}
+    .related-products {
+        position: relative;
+        left: 20px;
+        margin-top: 70px;
+    }
 
-.related-products {
-    margin-top: 70px;
-}
+    .related-products h2 {
+        margin-bottom: 30px;
+        color: #fff;
+    }
 
-.related-products h2 {
-    margin-bottom: 30px;
-    color: #fff;
-}
+    .related-grid {
+        display: flex;
+        gap: 34px;
 
-.related-grid {
-    display: flex;
-    gap: 34px;
 
+    }
+
+    .related-products {
+        margin-top: 70px;
+    }
+
+    .related-products h2 {
+        margin-bottom: 30px;
+        color: #fff;
+    }
+
+    .related-grid {
+        display: flex;
+        gap: 34px;
+
+    }
 }
