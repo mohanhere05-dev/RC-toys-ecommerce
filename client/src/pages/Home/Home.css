@@ -273,12 +273,12 @@
 
     .category-container {
         position: relative;
-        left: -12px;
+        right: 12px;
         width: 100%;
         padding: 20px 80px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
+        gap: 38px;
         justify-content: space-evenly;
         align-items: center;
 
@@ -359,12 +359,14 @@
     }
 
     .product-container {
+        position: relative;
+        right: 10px;
         max-width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: space-between;
         align-items: center;
-        gap: 19px;
+        gap: 28px;
         padding: 0 10px 10px 10px;
     }
 }
