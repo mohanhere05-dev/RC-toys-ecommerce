@@ -110,8 +110,6 @@ body {
 
 .Product-Cards .cart-btn {
     margin: auto;
-    width: 82%;
-    height: 62px;
     background: rgba(255, 255, 255, 0.10);
     display: flex;
     justify-content: center;
@@ -119,10 +117,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
     outline: none;
     margin-top: 12px;
-    padding: 12px 20px;
+    padding: 16px 18px;
     border-radius: 14px;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(20px);
@@ -145,6 +143,12 @@ body {
 
 .Product-Cards .cart-btn:active {
     transform: translateY(0px);
+}
+
+.buttons{
+    display: flex;
+    gap: 12px;
+    padding: 24px;
 }
 
 .wishlist-icon {

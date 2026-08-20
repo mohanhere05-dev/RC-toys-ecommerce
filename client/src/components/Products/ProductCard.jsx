@@ -74,9 +74,9 @@ const Product = ({ id, image, name, price, category, description, stock }) => {
                 <div className='product-image'>
                     <img
                         src={image.startsWith("/uploads")
-                                ? `${import.meta.env.VITE_API_URL}${image}`
-                                : image
-                            }
+                            ? `${import.meta.env.VITE_API_URL}${image}`
+                            : image
+                        }
                         alt={name}
                     />
                 </div>
@@ -93,10 +93,15 @@ const Product = ({ id, image, name, price, category, description, stock }) => {
 
                     <span>({stock} Stock) </span>
                 </div>
+                <div className='buttons'>
 
-                <button className='cart-btn'>
-                    View Details
-                </button>
+                    <button className='cart-btn'>
+                        View Details
+                    </button>
+                    <button className='cart-btn'>
+                         Buy now
+                    </button>
+                </div>
             </motion.div>
         </>
     )
