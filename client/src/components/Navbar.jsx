@@ -6,7 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaHeart } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
-
+import { useDispatch } from "react-redux";
+import { clearCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -17,7 +18,7 @@ const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-
+    const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
 
     const navigate = useNavigate();
@@ -71,14 +72,14 @@ const Navbar = () => {
     );
 
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        localStorage.removeItem("isLoggedIn");
-        toast.success("Logged Out Successfully");
-        setTimeout(() => {
-            window.location.href = "/login";
-        }, 1000);
-    };
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("isLoggedIn");
+
+    dispatch(clearCart());
+
+    navigate("/login");
+};
 
 
     return (

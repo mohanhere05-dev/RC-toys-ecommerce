@@ -1,17 +1,22 @@
-export const loadCart = () => {
+export const loadCart = (userId) => {
     try {
-        const data = localStorage.getItem("cartItems");
+        if (!userId) return [];
+
+        const data = localStorage.getItem(`cartItems_${userId}`);
 
         return data ? JSON.parse(data) : [];
     } catch (error) {
+        console.log(error);
         return [];
     }
 };
 
-export const saveCart = (cartItems) => {
+export const saveCart = (userId, cartItems) => {
     try {
+        if (!userId) return;
+
         localStorage.setItem(
-            "cartItems",
+            `cartItems_${userId}`,
             JSON.stringify(cartItems)
         );
     } catch (error) {
@@ -19,14 +24,28 @@ export const saveCart = (cartItems) => {
     }
 };
 
-export const loadWishlist = () => {
-    const data = localStorage.getItem("wishlist");
-    return data ? JSON.parse(data) : [];
+export const loadWishlist = (userId) => {
+    try {
+        if (!userId) return [];
+
+        const data = localStorage.getItem(`wishlist_${userId}`);
+
+        return data ? JSON.parse(data) : [];
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
 };
 
-export const saveWishlist = (wishlist) => {
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
+export const saveWishlist = (userId, wishlist) => {
+    try {
+        if (!userId) return;
+
+        localStorage.setItem(
+            `wishlist_${userId}`,
+            JSON.stringify(wishlist)
+        );
+    } catch (error) {
+        console.log(error);
+    }
 };

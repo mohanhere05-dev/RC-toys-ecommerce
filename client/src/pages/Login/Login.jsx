@@ -15,8 +15,13 @@ import "./Login.css";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebase/firebase";
 
+import { useDispatch } from "react-redux";
+import { setCartItems } from "../../features/cart/cartSlice";
+import { loadCart } from "../../utils/localStorage";
+
 const Login = () => {
-    
+
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
@@ -38,12 +43,15 @@ const Login = () => {
                 }
             );
             toast.success(response.data.message);
+
+            const user = response.data.user;
             localStorage.setItem("token", response.data.token);
-            localStorage.setItem(
-                "user",
-                JSON.stringify(response.data.user)
-            );
+            localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("isLoggedIn", "true");
+
+            const userCart = loadCart(user._id);
+            dispatch(setCartItems(userCart));
+            
             setTimeout(() => {
 
                 if (response.data.user.isAdmin) {
@@ -87,20 +95,15 @@ const Login = () => {
                 }
             );
 
-            localStorage.setItem(
-                "token",
-                response.data.token
-            );
+            const user = response.data.user;
 
-            localStorage.setItem(
-                "user",
-                JSON.stringify(response.data.user)
-            );
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("isLoggedIn", "true");
 
-            localStorage.setItem(
-                "isLoggedIn",
-                "true"
-            );
+            const userCart = loadCart(user._id);
+
+            dispatch(setCartItems(userCart));
 
             toast.success("Google Login Successful");
 

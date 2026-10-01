@@ -155,7 +155,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 28px;
+    font-size: 32px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
     background: rgba(255, 255, 255, 0.12);
@@ -185,7 +185,7 @@ body {
         position: relative;
         right: 16px;
         width: 180px;
-        height: 230px;
+        height: 240px;
         background: rgba(17, 25, 40, 0.55);
         border-radius: 8px;
         overflow: hidden;
@@ -277,19 +277,19 @@ body {
 
     .Product-Cards .cart-btn {
         margin: auto;
-        width: 82%;
-        height: 40px;
+        margin-top: -8px;
+        width: 88%;
+        height: 32px;
         background: rgba(255, 255, 255, 0.10);
         display: flex;
         justify-content: center;
         align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.15);
         outline: none;
-        margin-top: 8px;
-        padding: 8px 20px;
+        padding: 0 4px;
         border-radius: 6px;
         color: white;
-        font-size: 10px;
+        font-size: 8px;
         font-weight: 500;
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
         backdrop-filter: blur(20px);
@@ -317,7 +317,7 @@ body {
         position: absolute;
         top: 16px;
         right: 16px;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1;
         display: block;
         width: 1.4em;

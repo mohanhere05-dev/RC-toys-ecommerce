@@ -179,6 +179,7 @@ const ProductDetails = () => {
                 category={item.category}
                 description={item.description}
                 stock={item.stock}
+                button= {item.button}
               />
 
             ))}

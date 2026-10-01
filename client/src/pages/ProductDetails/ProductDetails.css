@@ -201,6 +201,19 @@
     font-size: 2rem;
 }
 
+.related-products{
+    margin: 28px 0;
+}
+
+.related-grid{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 32px;
+    margin-top: 28px;
+}
+
+
 /* ---------- Tablet ---------- */
 
 @media(max-width:1024px) {
@@ -282,23 +295,9 @@
 
     .related-grid {
         display: flex;
-        gap: 34px;
-
-
+        gap: 24px;
     }
+    
 
-    .related-products {
-        margin-top: 70px;
-    }
 
-    .related-products h2 {
-        margin-bottom: 30px;
-        color: #fff;
-    }
-
-    .related-grid {
-        display: flex;
-        gap: 34px;
-
-    }
 }
