@@ -43,14 +43,12 @@ const Payment = () => {
 
             const token = localStorage.getItem("token");
 
+            console.log("TOKEN:", token);
+
             const orderItems = cartItems.map((item) => ({
-
                 product: item._id,
-
                 quantity: item.quantity,
-
                 price: item.price,
-
             }));
 
             const totalPrice = cartItems.reduce(

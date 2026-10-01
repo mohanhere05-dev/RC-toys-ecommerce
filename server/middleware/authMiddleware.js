@@ -21,23 +21,24 @@ const protect = async (req, res, next) => {
             next();
 
         } catch (error) {
+            console.log("JWT ERROR:", error.message);
 
             return res.status(401).json({
                 message: "Not Authorized"
             });
-
         }
 
     }
 
-    if (!token) {
+}
 
-        return res.status(401).json({
-            message: "No Token"
-        });
+if (!token) {
 
-    }
+    return res.status(401).json({
+        message: "No Token"
+    });
 
-};
+}
+
 
 export { protect };
